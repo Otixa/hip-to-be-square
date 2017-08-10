@@ -1,0 +1,48 @@
+
+Range.Random(-neg, pos); thats the amount to add on, not the new Y coord
+
+
+
+
+
+
+
+
+Potential Problems - sponsored by Otixa & CodeMenace
+- How can we make Dan a less shit programmer??
+>> Answers on a post card plz
+
+Mikes Maths: 
+ float maxDist = Round(((Vector(Vx, Vy).magnitude * Vector(Vx, Vy).magnitude)/gravityScale) * maxTime)
+
+SOLVED PROBLEMS:
+- How to make a block fall from under Chunk only when he falls on, rather than walk over it
+
+- How to make a block pushable by only ze Chunkmeister. 
+
+- How to handle collecting new pickup when one is active
+>> we want new buff to override the existing COMPLETE :D
+
+- How do stop the focus points being depleted while
+a buff is active.
+>> When you hold shift, it no longer takes any of your focus points
+
+- Our Object pool class only allows you to give one type of object for it to pool. 
+>> we want it to hold 3 different types. Do we need a new class?
+
+The problem is we need to generate what random number range our next Y co-ordinate should be, when we are provided with the last Y co-ordinate, the maximum amount we can jump/drop (these values will both be the same), along with the new platforms lower and upper bounds. For example, our y axis goes from 0 to 10. Our last platform finished on 2 (on the Y axis). Our character can jump/drop 1 unit. The platform we need to generate can spawn safely between coordinate 0 and 8. Our constraints are we don't want to spawn a platform higher than we will be able to jump to, or that breaks the upper bound round of the platform. We also don't want to spawn a platform lower than the amount we can drop, nor lower than the platforms lower bounds. What formulas can you use, given any combination of lastY, jumpOrDropAmount, lowerBounds, upperBounds variables, in order to correctly provide the range of y co-ordinates that are safe for our new platform?
+
+1) You must find out two things to begin. Are you able to jump up an area thats within the bounds of the new object? And are you able to drop down on or above the lower bounds of object. We refer to these as canJump and canDrop. 
+
+canJump:
+ IF(currentY + jumpAmount >= lowerBounds && currentY + jumpAmount <= upperBounds)
+
+canDrop:
+IF(currentY-dropAmount <= upperSpawnLimit && currentY-dropAmount <= lowerBounds)
+
+THEN, the ranges based on those are as follows:
+IF canJump && canDrop: Range(lowerBounds, upperBounds)
+ELSEIF canJump: Range(currentY-dropAmount, upperBounds)
+ELSEIF canDrop: Range(lowerBounds, currentY+Jump)
+
+This should solve all situations, assuming the amount you can safely jump or drop is equal. 
