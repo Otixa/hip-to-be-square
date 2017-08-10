@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6CEC5D8F-CCA2-027F-14DB-60050BBC425E}</ProjectGuid>
+    <ProjectGuid>{6057C5F9-C730-E554-A536-52B61F06C2E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -53,10 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Editor\TransformInspector.cs" />
      <Compile Include="Assets\Scripts\Utility\Editor\PropertyMonitorInspector.cs" />
-     <None Include="Assets\Editor\GitHub\CREDITS.txt" />
-     <None Include="Assets\Editor\GitHub\EULA.txt" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/dj_co/Documents/hip-to-be-square/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -121,46 +119,10 @@
  <Reference Include="UnityEditor.Facebook.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/Facebook/UnityEditor.Facebook.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="AsyncBridge.Net35">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/AsyncBridge.Net35.dll</HintPath>
- </Reference>
- <Reference Include="GitHub.Api">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/GitHub.Api.dll</HintPath>
- </Reference>
- <Reference Include="GitHub.Logging">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/GitHub.Logging.dll</HintPath>
- </Reference>
- <Reference Include="GitHub.Unity">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/GitHub.Unity.dll</HintPath>
- </Reference>
- <Reference Include="ICSharpCode.SharpZipLib">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/ICSharpCode.SharpZipLib.dll</HintPath>
- </Reference>
- <Reference Include="Mono.Security">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/Mono.Security.dll</HintPath>
- </Reference>
- <Reference Include="Octokit">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/Octokit.dll</HintPath>
- </Reference>
- <Reference Include="Rackspace.Threading">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/Rackspace.Threading.dll</HintPath>
- </Reference>
- <Reference Include="ReadOnlyCollectionsInterfaces">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/ReadOnlyCollectionsInterfaces.dll</HintPath>
- </Reference>
- <Reference Include="sfw.net">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/sfw.net.dll</HintPath>
- </Reference>
- <Reference Include="System.Net.Http">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/System.Net.Http.dll</HintPath>
- </Reference>
- <Reference Include="System.Threading">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Assets/Editor/GitHub/System.Threading.dll</HintPath>
- </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{F4E4C7E7-157F-5CDC-8472-6354CB84F6C0}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{E6F52D86-DDD1-DCFE-48B4-C25772B0CDE0}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F4E4C7E7-157F-5CDC-8472-6354CB84F6C0}</ProjectGuid>
+    <ProjectGuid>{E6F52D86-DDD1-DCFE-48B4-C25772B0CDE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -71,13 +71,13 @@
      <Compile Include="Assets\Scripts\PowerupManager.cs" />
      <Compile Include="Assets\Scripts\Powerups.cs" />
      <Compile Include="Assets\Scripts\Refactoring\BuffPickup.cs" />
-     <Compile Include="Assets\Scripts\Refactoring\EnvironmentalObject.cs" />
      <Compile Include="Assets\Scripts\Refactoring\FocusBuff.cs" />
      <Compile Include="Assets\Scripts\Refactoring\FocusPickup.cs" />
      <Compile Include="Assets\Scripts\Refactoring\Pickup.cs" />
      <Compile Include="Assets\Scripts\Refactoring\PointBuff.cs" />
      <Compile Include="Assets\Scripts\Refactoring\PointPickup.cs" />
      <Compile Include="Assets\Scripts\Refactoring\PowerupGenerator.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\ResettableObject.cs" />
      <Compile Include="Assets\Scripts\SceneScroller.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SpawnExit.cs" />
@@ -86,10 +86,8 @@
      <Compile Include="Assets\Scripts\TutorialManager.cs" />
      <Compile Include="Assets\Scripts\TutorialPopup.cs" />
      <Compile Include="Assets\Scripts\Utility\PropertyMonitor.cs" />
-     <None Include="Assets\Editor\GitHub\CREDITS.txt" />
-     <None Include="Assets\Editor\GitHub\EULA.txt" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/dj_co/Documents/4 Sided/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/dj_co/Documents/hip-to-be-square/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
