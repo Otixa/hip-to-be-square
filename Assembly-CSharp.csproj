@@ -71,7 +71,6 @@
      <Compile Include="Assets\Scripts\PowerupManager.cs" />
      <Compile Include="Assets\Scripts\Powerups.cs" />
      <Compile Include="Assets\Scripts\Refactoring\DynamicEnvironmentObject.cs" />
-     <Compile Include="Assets\Scripts\Refactoring\DynamicInteractiveObject.cs" />
      <Compile Include="Assets\Scripts\Refactoring\EnvironmentObject.cs" />
      <Compile Include="Assets\Scripts\Refactoring\GenericPlayer.cs" />
      <Compile Include="Assets\Scripts\Refactoring\Pickups\BuffPickup.cs" />
@@ -84,7 +83,6 @@
      <Compile Include="Assets\Scripts\Refactoring\PowerupGenerator.cs" />
      <Compile Include="Assets\Scripts\Refactoring\ResettableObject.cs" />
      <Compile Include="Assets\Scripts\Refactoring\Spikes.cs" />
-     <Compile Include="Assets\Scripts\Refactoring\ThudObject.cs" />
      <Compile Include="Assets\Scripts\SceneScroller.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SpawnExit.cs" />

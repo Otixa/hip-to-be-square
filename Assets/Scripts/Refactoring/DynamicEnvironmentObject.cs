@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class DynamicEnvironmentObject : EnvironmentObject {
+public class DynamicEnvironmentObject : EnvironmentObject {
     protected Rigidbody2D _rigidbody;
 
     void Awake()
@@ -23,5 +23,4 @@ public abstract class DynamicEnvironmentObject : EnvironmentObject {
     {
         _rigidbody.WakeUp();
     }
-
 }

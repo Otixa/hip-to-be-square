@@ -11,7 +11,7 @@ public class PointPickup : Pickup {
 		theScoreManager = FindObjectOfType<ScoreManager>();			//we need this so we can call the add points function within it
 	}
 
-	public override void OnPickup (Collider2D other)
+	public override void OnPickup (PlayerCollisionEvent other)
 	{	//define behaviour of our coins
 		theScoreManager.AddScore(amountOfPoints);					//call it's method which allows us to add points, passing to it the amount of points this coin is worth
 	}		
