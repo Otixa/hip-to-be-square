@@ -43,7 +43,7 @@ public abstract class BuffPickup : Pickup {
     /// Method called when the BuffPickup is picked up.
     /// </summary>
     /// <param name="other">The Player GameObject collision information.</param>
-	public override sealed void OnPickup (Collider2D other)
+	public override sealed void OnPickup (PlayerCollisionEvent other)
 	{
         //Debug.Log("Pickup Event on Buffpickup");
 		if (_activeBuff != null)  //if a buff is already active

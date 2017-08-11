@@ -9,19 +9,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public abstract class Pickup : EnvironmentObject {
 
-    protected override void OnPlayerCollision(Collision2D other)
+    protected override void OnPlayerCollision(PlayerCollisionEvent other)
     {
         OnPickup(other);
         gameObject.SetActive(false);
     }
 
-	//void OnTriggerEnter2D(Collider2D other){				//we want every pickup to check for trigger collisions with the player
-	//	if (other.gameObject.tag == "Player") {
-	//		OnPickup (other);								//pass the collided player to the OnPickup method which will have several different implementations
-	//		gameObject.SetActive(false);
-	//	}
-	//}
-
-	public abstract void OnPickup (Collider2D other);
-
+	public abstract void OnPickup (PlayerCollisionEvent other);
 }

@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{E6F52D86-DDD1-DCFE-48B4-C25772B0CDE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -52,71 +51,72 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\CoinGenerator.cs" />
-    <Compile Include="Assets\Scripts\DeathMenu.cs" />
-    <Compile Include="Assets\Scripts\EndLevelPopup.cs" />
-    <Compile Include="Assets\Scripts\FallingBlock.cs" />
-    <Compile Include="Assets\Scripts\FollowCameraX.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Generics\MonoBehaviourExtended.cs" />
-    <Compile Include="Assets\Scripts\Generics\Singleton.cs" />
-    <Compile Include="Assets\Scripts\MapSectionGenerator.cs" />
-    <Compile Include="Assets\Scripts\ObjectDestroyer.cs" />
-    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
-    <Compile Include="Assets\Scripts\ObjectSpawnBounds.cs" />
-    <Compile Include="Assets\Scripts\PartOfTheScenery.cs" />
-    <Compile Include="Assets\Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\PickupPoints.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PowerupManager.cs" />
-    <Compile Include="Assets\Scripts\Powerups.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\Pickups\BuffPickup.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\DynamicEnvironmentObject.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\DynamicInteractiveObject.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\EnvironmentObject.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\Pickups\FocusBuff.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\Pickups\FocusPickup.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\Pickups\Pickup.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\PlayerSpecificReactiveObject.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\Pickups\PointBuff.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\Pickups\PointPickup.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\PowerupGenerator.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\ResettableObject.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\Spikes.cs" />
-    <Compile Include="Assets\Scripts\Refactoring\ThudObject.cs" />
-    <Compile Include="Assets\Scripts\SceneScroller.cs" />
-    <Compile Include="Assets\Scripts\ScoreManager.cs" />
-    <Compile Include="Assets\Scripts\SpawnExit.cs" />
-    <Compile Include="Assets\Scripts\ThudBlock.cs" />
-    <Compile Include="Assets\Scripts\TitleScreen.cs" />
-    <Compile Include="Assets\Scripts\TutorialManager.cs" />
-    <Compile Include="Assets\Scripts\TutorialPopup.cs" />
-    <Compile Include="Assets\Scripts\Utility\PropertyMonitor.cs" />
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>C:/Users/dj_co/Documents/hip-to-be-square/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Timeline">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.HoloLens">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\CoinGenerator.cs" />
+     <Compile Include="Assets\Scripts\DeathMenu.cs" />
+     <Compile Include="Assets\Scripts\EndLevelPopup.cs" />
+     <Compile Include="Assets\Scripts\FallingBlock.cs" />
+     <Compile Include="Assets\Scripts\FollowCameraX.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Generics\MonoBehaviourExtended.cs" />
+     <Compile Include="Assets\Scripts\Generics\Singleton.cs" />
+     <Compile Include="Assets\Scripts\MapSectionGenerator.cs" />
+     <Compile Include="Assets\Scripts\ObjectDestroyer.cs" />
+     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
+     <Compile Include="Assets\Scripts\ObjectSpawnBounds.cs" />
+     <Compile Include="Assets\Scripts\PartOfTheScenery.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Scripts\PickupPoints.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PowerupManager.cs" />
+     <Compile Include="Assets\Scripts\Powerups.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\DynamicEnvironmentObject.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\DynamicInteractiveObject.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\EnvironmentObject.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\GenericPlayer.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\Pickups\BuffPickup.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\Pickups\FocusBuff.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\Pickups\FocusPickup.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\Pickups\Pickup.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\Pickups\PointBuff.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\Pickups\PointPickup.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\PlayerSpecificReactiveObject.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\PowerupGenerator.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\ResettableObject.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\Spikes.cs" />
+     <Compile Include="Assets\Scripts\Refactoring\ThudObject.cs" />
+     <Compile Include="Assets\Scripts\SceneScroller.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\Scripts\SpawnExit.cs" />
+     <Compile Include="Assets\Scripts\ThudBlock.cs" />
+     <Compile Include="Assets\Scripts\TitleScreen.cs" />
+     <Compile Include="Assets\Scripts\TutorialManager.cs" />
+     <Compile Include="Assets\Scripts\TutorialPopup.cs" />
+     <Compile Include="Assets\Scripts\Utility\PropertyMonitor.cs" />
+ <Reference Include="Facebook.Unity.Settings">
+ <HintPath>C:/Users/dj_co/Documents/hip-to-be-square/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -126,4 +126,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
