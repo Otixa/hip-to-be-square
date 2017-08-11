@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//***************************************OBSOLETE - NO LONGER USED***************************************************//
+
 /* This component will be attached to pick ups, and specifies the type of pickup that it is. It is also used in ]
  * order to randomly choose the type of pickup that is generated when it's set to be active in the game world */
 public class Powerups : MonoBehaviour {

@@ -2,37 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct PlayerCollisionEvent
+{
+    public GameObject player;
+    public Collision2D collisionInfo;
+}
 
 [RequireComponent(typeof(Collider2D))]
-
-abstract class EnvironmentObject : ResettableObject {
-
+public abstract class EnvironmentObject : ResettableObject {   
+    //TRIGGERS & COLLIDER2D
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (CheckPlayerCollision(other))
+        var playerCollisionEvent = new PlayerCollisionEvent();
+        playerCollisionEvent.player = other.gameObject;
+        playerCollisionEvent.collisionInfo = null;
+        if (CheckPlayerCollision(playerCollisionEvent))
         {
-            OnPlayerCollision(other); 
+            OnPlayerCollision(playerCollisionEvent); 
         }
     }
 
-    void OnCollisionEnter2D(Collider2D other)
+    //COLLISION & COLLISION2D
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (CheckPlayerCollision(other))
+        var playerCollisionEvent = new PlayerCollisionEvent();
+        playerCollisionEvent.player = other.gameObject;
+        playerCollisionEvent.collisionInfo = other;
+
+        if (CheckPlayerCollision(playerCollisionEvent))
         {
-            OnPlayerCollision(other);
+            OnPlayerCollision(playerCollisionEvent);
         }
     }
+   
+    //this is for the triggers
+    protected abstract void OnPlayerCollision(PlayerCollisionEvent other);
 
-    // this will be defined in all extensions of this class
-    protected abstract void OnPlayerCollision(Collider2D other);        
-
-    protected virtual bool CheckPlayerCollision(Collider2D other)
+    //question: is this virtual incase subclasses want to further define the method?
+    protected virtual bool CheckPlayerCollision(PlayerCollisionEvent other)
     {
-        if(gameObject.tag == "Player")
+        if (other.player.CompareTag("Player"))            //as collision2d is event, not a component, we must use gameobject.comparetag
         {
             return true;
         }
         return false;                       //won't reach here if it's true, as return exits the function
     }
+
+ 
 
 }

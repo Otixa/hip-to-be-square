@@ -9,11 +9,16 @@ public abstract class ResettableObject : MonoBehaviour {
     public Vector3 resetPosition;                   //as will need to access this from object pooler when positions are changing as objects are spawned and destroyed
     public bool shouldReset = true;                 //for special situation where we want a resettableObject to behave differently 
 
-    //this will be set 
+    //this *can* be overriden if needs be, but doesn't have to be
     protected virtual void OnReset() { }
 
+    public virtual void ForceReset( )
+    {
+        OnReset();
+    }
+
     // Use this for initialization
-    private void Start () {         //First enabled                             (//Awake when initialised, regardless of being enabled or not)
+    private void Start () {                         //When First enabled                             (//Awake when initialised, regardless of being enabled or not)
         resetPosition = transform.position;
 	}
 
@@ -27,7 +32,5 @@ public abstract class ResettableObject : MonoBehaviour {
         }
         resetPosition = transform.position;
     }
-
-    
 
 }

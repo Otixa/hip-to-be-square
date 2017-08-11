@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//***************************************OBSOLETE - NO LONGER USED***************************************************//
+
 /* This component will manage how to react when different powerups are collected. Does nothing unless PowerupActive is true.
  * also includes a method which will be called when pickups are triggered by the player */
 public class PowerupManager : MonoBehaviour {

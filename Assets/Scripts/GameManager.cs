@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /* This component will connect with various other classes to control the flow of the game.
  * this includes initialisation of the game, pausing, restarting, keeping scores. */
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	public bool disableMapGen;							//A switch to turn off the map generator in levels where you want to use a predefined level
 	private Powerups[] thePowerups;						//an array to check all powerups and find those which should reactivate upon game restart
 	private PickupPoints[] theCoins;					//an array to check all powerups and find those which should reactivate upon game restart
+    public UnityEvent OnSomething;          //cause Mike told me to.
 
 	void Start () {
 		theScoreManager = FindObjectOfType<ScoreManager> ();

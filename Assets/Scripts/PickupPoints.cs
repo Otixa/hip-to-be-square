@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//***************************************OBSOLETE - NO LONGER USED***************************************************//
 
 /* This is a script to attach to things that give you points. We give each object an amount of points */
 public class PickupPoints : MonoBehaviour {

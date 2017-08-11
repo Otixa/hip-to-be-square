@@ -1,0 +1,12 @@
+BACKROUND:			// GONNA GIVE THIS SOME THOUGHT IN THE SHOWER <3 //
+We have prefab of platform.
+Prefab includes special blocks that can be changed.
+Random Map Generator re-uses a pool of prefabs during generation.
+
+THE PROBLEM:
+When a pooled prefab with special block is re-used, the specials blocks need to be restored to their original positions. They also need their properties reset, such as gravity / velocity / body type. 
+
+SOLUTION SO FAR:
+Part of Scenery script exists that will store the StartPosition of an object (special block in this case), and therefore be able to revert to it. This position is store in the Start method, so updated each time it is set to be active. At game restart (when dead or restart from menu), we find all objects of Part of Scenery type and set their position back to the stored StartPosition.
+This alone is not enough, because we need positions reset as objects are pooled, not just as the game restarts. Attempted so far to add a "OnDisable()" function to "Part of Scenery" in order to try and get the position to reset when the setActive is set to false. No joy so far.
+(PS. Similar approach for resetting gravity of the "thud blocks" (the blocks that fall on collision)is handled with the script called thud blocks. In the same manner as above, the GameManager finds all objects of this type on gameReset() and resets their bodyType, velocity etc. I've tried adding a OnDisable() function to this too, yet similarly doesn't have the desired effect. 
