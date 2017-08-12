@@ -1786,7 +1786,6 @@ MonoBehaviour:
   tut_text: {fileID: 114237728256843130}
   popupActive: 0
   tutorialMessage: {fileID: 1350671759152214}
-  thePlayerController: {fileID: 0}
 --- !u!114 &114569263317147592
 MonoBehaviour:
   m_ObjectHideFlags: 1

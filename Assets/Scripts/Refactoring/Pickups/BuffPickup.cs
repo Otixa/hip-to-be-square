@@ -53,8 +53,14 @@ public abstract class BuffPickup : Pickup {
 		}
 		_activeBuff = this;              //assign active buff to be the current buffPickup that's just been collected
 		OnApply ();                    //do whatever actions that specific buff needs you to do, defined by the specific buffs
-		Invoke ("_disableBuffInternal", buffDuration);        //set the disableBuffInternal function to be called in Buff Duration seconds
-	}
+        if(_activeBuff is FocusBuff){ 
+		    Invoke ("_disableBuffInternal", (buffDuration*other.player.GetComponent<GenericPlayer>().slowDownModifier));        //set the disableBuffInternal function to be called in Buff Duration seconds
+        }
+        else
+        {
+            Invoke("_disableBuffInternal", buffDuration);        //set the disableBuffInternal function to be called in Buff Duration seconds
+        }
+    }
     #endregion
 
     /// <summary>

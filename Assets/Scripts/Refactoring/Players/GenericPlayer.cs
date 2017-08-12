@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public struct PlayerStats
 {
     public string name;
@@ -12,10 +11,12 @@ public struct PlayerStats
     public int deaths;
 }
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]     //!!is this the correct way to require both?
 public abstract class GenericPlayer : ResettableObject {
     
     protected Collider2D _collider;
     protected Rigidbody2D _rigidbody;
+    private Animator _animator;		                        //reference to animator so we can set animator parameters
 
     public PlayerStats playerStats;
     [Header("Control Parameters")]
@@ -25,16 +26,17 @@ public abstract class GenericPlayer : ResettableObject {
     private float jumpDurationCurrent;
     private bool isGrounded;
     private bool stoppedJumping;
-
-    [Range(0.05f, 0.25f)] public float footSensorRadius;
-    [Range(0.05f, 0.25f)] public float headSensorRadius;
+    [Range(0.05f, 0.25f)] public float feetSensorRadius = 0.1f;
+    [Range(0.05f, 0.25f)] public float headSensorRadius = 0.1f;
     public LayerMask groundLayer; // = LayerMask.GetMask("Ground");//specify the type of layer that we will use to detect if we are on the ground and able to perform a jump (used to determined the grounded boolean)
+
     [Header("Focus Settings")]
     public bool freeFocus;                                           //!! change to game manager eventually
     public float slowDownModifier = 0.5f;                            //decimal point value
     public float maxFocus = 5f;
 
-    private Animator _animator;		//reference to animator so we can set animator parameters
+    [Header("Additional Settings")]
+    public float lastFrameVelocity;			    //this players velocity, BUT LAST FRAME - used for some player collisions to detect the downwards velocity upon impact
 
 
     private void OnDrawGizmos()
@@ -44,9 +46,9 @@ public abstract class GenericPlayer : ResettableObject {
             _collider = GetComponent<Collider2D>();
         }
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(GetFeetPosition(), 0.25f);
+        Gizmos.DrawSphere(GetFeetPosition(), 0.1f);
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(GetHeadPosition(), 0.25f);
+        Gizmos.DrawSphere(GetHeadPosition(), 0.1f);
     }
 
     // Use this for initialization
@@ -65,7 +67,7 @@ public abstract class GenericPlayer : ResettableObject {
 		 * handle the jumping mechanics, allowing the user to jump as desired. This includes not starting a jump
 		 * in midair and ensuring you can only jump when your feet are on the ground (rather than face against a wall)*/
         _rigidbody.velocity = new Vector2(moveVelocity, _rigidbody.velocity.y);                                         //updates the x-axis velocity of the player based on his playerSpeed variable
-        isGrounded = Physics2D.OverlapCircle(GetFeetPosition(), footSensorRadius, groundLayer);     //create a sphere collider at feet, detect if it comes into contact with the layer type associated with "ground".
+        isGrounded = Physics2D.OverlapCircle(GetFeetPosition(), feetSensorRadius, groundLayer);     //create a sphere collider at feet, detect if it comes into contact with the layer type associated with "ground".
 
         if (Physics2D.OverlapCircle(GetHeadPosition(), headSensorRadius, groundLayer))
         {                                                                   //stop jumping when HEAD collides with underside of platform
@@ -107,19 +109,32 @@ public abstract class GenericPlayer : ResettableObject {
             {                                                               //ensure slow down points remain
                 if (!freeFocus)
                 {
-                    playerStats.focus -= Time.unscaledDeltaTime;            //reduce the slow down points (we * by slowDownModifier in order to counter the effect of slowing time on a counter)
+                    //!! this doesn't worked as we hoped
+
+                    // 1. To reduce speed we * 0.5, giving us newSpeed
+                    // How can we use that 0.5 modifier, to get the newSpeed back to 1. 
+
+                    // 1. To reduce speed we * 0.25, giving us newSpeed
+                    // How can we use that 0.25 modifier, to get the newSpeed back to 1. 
+
+                    // 1. To reduce speed we * 0.2, giving us newSpeed
+                    // How can we use that 0.2 modifier, to get the newSpeed back to 1. 
+
+                    // 1 / modifier = multiplication rate    
+                    playerStats.focus -= Time.unscaledDeltaTime ;            //reduce the slow down points (we * by slowDownModifier in order to counter the effect of slowing time on a counter)
+                    //playerStats.focus -= (Time.deltaTime * (1 / slowDownModifier));               //hahaha @ Otixa this is even worse than my old way!
                 }
                 else
                 {
                     //Debug.Log("FREE FOCUS ON: Slowdown modifier is: "+slowDownModifier);
                 }
 
-                Time.timeScale = slowDownModifier;                          //set the game speed based on the slow down modifier (example: 2 would mean speed is halved)
-                _animator.SetBool("isFocusing", true);                     //boolean that trigger the animation to start                                                                                                   //myAnimator.SetBool("isMoving", false);
+                Time.timeScale = slowDownModifier;                      //set the game speed based on the slow down modifier (example: 2 would mean speed is halved)
+                _animator.SetBool("isFocusing", true);                  //boolean that trigger the animation to start                                                                                                   //myAnimator.SetBool("isMoving", false);
             }
         }
 
-        if (Input.GetButtonUp("Focus") || playerStats.focus <= 0)
+        if (Input.GetButtonUp("Focus") || (playerStats.focus <= 0 && !freeFocus))
         {                                                               //to track when player stops expending slow down speed points
             Time.timeScale = 1f;                                        //reset the speed to the original speed
             if (playerStats.focus < 0)
@@ -139,19 +154,21 @@ public abstract class GenericPlayer : ResettableObject {
         }
     }
 
+    void FixedUpdate()                                                  //this update will execute prior to collision code calculations
+    {               
+        lastFrameVelocity = _rigidbody.velocity.y;
+    }
+
     private void UpdatePlayerStats()
     {
         playerStats.position = transform.position;
         playerStats.velocity = _rigidbody.velocity;
     }
 
-
     private Vector3 GetFeetPosition()
     {
         Vector3 feetPosition = _collider.bounds.center;                 //get middle
         feetPosition.y -= _collider.bounds.extents.y;                   //subtract half of the y size
-        //feetPosition.y += _collider.offset.y;                           //take into account any offset provided
-        //feetPosition.x += _collider.offset.x;
         return feetPosition;
     }
 
@@ -159,8 +176,6 @@ public abstract class GenericPlayer : ResettableObject {
     {
         Vector3 headPosition = _collider.bounds.center;                 //get middle
         headPosition.y += _collider.bounds.extents.y;                   //add half of the y size
-        //headPosition.y += _collider.offset.y;                           //take into account any offset provided
-        //headPosition.x += _collider.offset.x;
         return headPosition;
     }
 

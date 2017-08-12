@@ -5,14 +5,21 @@ using UnityEngine;
 public class PlayerSpecificReactiveObject : DynamicEnvironmentObject {
     public string playerName;               //this is player that we want the dynamic object to react to
 
-    //question: is this virtual incase subclasses want to further define the method?
+    //question: this overrides the behaviour in Environmental Object, which is the if statement condition to whether OnPlayerCollision() is called. 
     protected override bool CheckPlayerCollision(PlayerCollisionEvent other)
     {
-        if (other.player.CompareTag("Player") && other.player.name == playerName)            //as collision2d is event, not a component, we must use gameobject.comparetag
+        if (other.player.CompareTag("Player") && other.player.name == playerName)          
         {
             return true;
         }
-        return false;                       //won't reach here if it's true, as return exits the function
+        return false;                      
+    }
+
+    
+    //we don't need this at present, because through using WakeUp() to apply the physics, we no longer to adjust the rigidbody settings upon collision
+    private void OnPlayerSpecificAction(PlayerCollisionEvent other)
+    {
+
     }
 
 }

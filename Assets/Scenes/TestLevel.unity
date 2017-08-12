@@ -2558,7 +2558,7 @@ MonoBehaviour:
   sectionPools: {fileID: 1111033677}
   maxHeightChange: 2
   spikePool: {fileID: 431895243}
-  randomSpikeChance: 50
+  randomSpikeChance: 100
   powerupHeight: 3.5
   powerupChance: 75
   endOfLevel: 0
@@ -6444,16 +6444,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114560064063514892, guid: 34aef30a44a480d4a9a3a568b96682c8,
-        type: 2}
-      propertyPath: thePlayerController
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114211578648142988, guid: 34aef30a44a480d4a9a3a568b96682c8,
-        type: 2}
-      propertyPath: pointsPerSecond
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34aef30a44a480d4a9a3a568b96682c8, type: 2}

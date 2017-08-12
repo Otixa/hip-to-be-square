@@ -19,8 +19,8 @@ public class ThudBlock : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		
-		if (other.gameObject.tag =="Player" &&  other.gameObject.GetComponent<PlayerController>().prevVelocity <= -13 && other.gameObject.name == "Chunk"){
-			Debug.Log (other.gameObject.GetComponent<PlayerController> ().prevVelocity);
+		if (other.gameObject.tag =="Player" &&  other.gameObject.GetComponent<GenericPlayer>().lastFrameVelocity <= -13 && other.gameObject.name == "Chunk"){
+			Debug.Log (other.gameObject.GetComponent<GenericPlayer> ().lastFrameVelocity);
 			//myRigidbody.gameObject.layer = LayerMask.NameToLayer ("Default");			//change the dropping block to be not ground, so we can't jump off of it
 			//myRigidbody.gravityScale = 1;
 			myRigidbody.bodyType = RigidbodyType2D.Dynamic;

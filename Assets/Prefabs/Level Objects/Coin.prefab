@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
-  shouldReset: 1
-  amountOfPoints: 0
+  shouldReset: 0
+  amountToGive: 10
 --- !u!114 &114853176485725218
 MonoBehaviour:
   m_ObjectHideFlags: 1

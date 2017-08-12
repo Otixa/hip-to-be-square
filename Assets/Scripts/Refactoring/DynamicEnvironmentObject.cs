@@ -7,8 +7,9 @@ using UnityEngine;
 public class DynamicEnvironmentObject : EnvironmentObject {
     protected Rigidbody2D _rigidbody;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 

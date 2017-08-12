@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212513889482123336}
   - component: {fileID: 114473674408224858}
   - component: {fileID: 68620387963975132}
+  - component: {fileID: 114711664986200558}
   m_Layer: 0
   m_Name: Spike
   m_TagString: triggerdeath
@@ -75,7 +76,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionPoint: {fileID: 0}
+  keepActive: 0
+--- !u!114 &114711664986200558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1666324862727446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  gameManager: {fileID: 0}
+  spikeHeightOffset: 0
 --- !u!212 &212513889482123336
 SpriteRenderer:
   m_ObjectHideFlags: 1

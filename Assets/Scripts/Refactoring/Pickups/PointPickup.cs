@@ -4,7 +4,7 @@ using UnityEngine;
 
 /* this class extends the pickup class, and defines the behaviour of a coin pick up */
 public class PointPickup : Pickup {
-	[SerializeField] private int amountOfPoints;
+	public int amountToGive = 10;
 	private ScoreManager theScoreManager;
 
 	protected override void Awake(){
@@ -14,6 +14,6 @@ public class PointPickup : Pickup {
 
 	public override void OnPickup (PlayerCollisionEvent other)
 	{	//define behaviour of our coins
-		theScoreManager.AddScore(amountOfPoints);					//call it's method which allows us to add points, passing to it the amount of points this coin is worth
+		theScoreManager.AddScore(amountToGive);					    //call it's method which allows us to add points, passing to it the amount of points this coin is worth
 	}		
 }

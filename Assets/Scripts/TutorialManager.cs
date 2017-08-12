@@ -7,12 +7,12 @@ public class TutorialManager : MonoBehaviour {
 	public Text tut_text;
 	public bool popupActive;
 	public GameObject tutorialMessage;
-	private GenericPlayer thePlayerController;
+	private GenericPlayer player;
 
 	// Use this for initialization
 	void Start () {
         //SetTutorialText("Let's learn a little about Joe. ");
-        thePlayerController = FindObjectOfType<GenericPlayer>();
+        player = FindObjectOfType<GenericPlayer>();
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class TutorialManager : MonoBehaviour {
 			popupActive = false;
 			tutorialMessage.SetActive (false);//disable the UI text
 			Time.timeScale = 1f;
-			thePlayerController.enabled = true;
+			player.enabled = true;
 		}
 	}
 
@@ -30,7 +30,7 @@ public class TutorialManager : MonoBehaviour {
 		tut_text.text = message;
 		tutorialMessage.SetActive (true);//enable UI text
 		popupActive = true;
-		thePlayerController.enabled = false;	//disable the player controller script - FOR NOW
+		player.enabled = false;	//disable the player controller script - FOR NOW
 	}
 
 }

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//***************************************OBSOLETE - NO LONGER USED***************************************************//
+
 /* This script will set up and update the current values to be drawn on the UI
  * along with handling requests to add a certain amount of points to the currentpoints*/
 public class ScoreManager : MonoBehaviour {
+    public Text debugInfo;
 	public Text PPStest;	//for testing
 	public Text playerName;			//get reference to the UI text object that displays the player name
 	public Text currentScore;		//get reference to the UI text object that displays the current score
@@ -19,7 +22,7 @@ public class ScoreManager : MonoBehaviour {
 	public string nameText;			//variable used to store the name to display in the UI
 	public float pointsPerSecond;	//this specifies how many points we should add to the score every second that passes
 	public bool scoringEnabled;		//this boolean controls whether or not points should be added to the score counter or not (when you die, points should stop increasing).
-	private GenericPlayer thePlayerController;			//reference needed so we can access character name and speed bar value
+	private GenericPlayer player;			//reference needed so we can access character name and speed bar value
 	private MapSectionGenerator theMapGen;					//reference needed so we can stop generating map when we accumulate enough points
 	public GameObject speedBar;								//reference to the UI image that represents how much time slow down points we have remaining (the blue bar)
 	public bool spawnedEnd;								//boolean that ensures the endoflevel code is only executed once
@@ -30,9 +33,9 @@ public class ScoreManager : MonoBehaviour {
 
 	void Start () {
 		//Debug.Log ("I AM A SCORE MANAGER, I COME FROM ROUND YOUR WAY, WHAT CAN I PLAY!?");
-		thePlayerController = FindObjectOfType<GenericPlayer> ();		    //get hold of the player
+		player = FindObjectOfType<GenericPlayer> ();		    //get hold of the player
 		theMapGen = FindObjectOfType<MapSectionGenerator>();				//get hold of the MapGenerator
-		nameText = thePlayerController.playerStats.name;							//grab the name field from the player
+		nameText = player.playerStats.name;							//grab the name field from the player
 		playerName.text = nameText;											//set the text to show that name
 		scoreCounter = 0;													//set scores at 0 at the beginning
 		highScoreCounter = 0;												//this sets highscore to be 0, but will be updated if PlayerPrefs holds an existing high score
@@ -41,13 +44,13 @@ public class ScoreManager : MonoBehaviour {
 		}
 		highScore.text = "High Score: " + Mathf.Round(highScoreCounter);	//show the current highscore, we round it so we don't have decimal points in the score
 		scoringEnabled = true;												//at start of game scoring should be enabled
-		slowSpeedPoints.text = "Slow Time: "+thePlayerController.playerStats.focus.ToString("F2")+" / "+thePlayerController.playerStats.focus;	//display our speed points text (under the blue bar)
-		//speedBar.transform.localScale = new Vector3 ((thePlayerController.slowSpeedPoints / thePlayerController.slowSpeedPointsMax), speedBar.transform.localScale.y, speedBar.transform.localScale.z);
+		slowSpeedPoints.text = "Slow Time: "+player.playerStats.focus.ToString("F2")+" / "+player.playerStats.focus;	//display our speed points text (under the blue bar)
 		buffImage.color = new Color(0.5f,0.5f,0.5f, 0.2f);
 		buffDurationText.color = new Color (1f, 1f, 1f, 0f);
 	}
 
 	void Update () {
+        debugInfo.text = ""+player.slowDownModifier + player.freeFocus + Time.timeScale;
 		if (scoringEnabled) {												//if we are alive and not finished the level
 			scoreCounter = Mathf.Clamp(scoreCounter + (pointsPerSecond * Time.deltaTime), 0, scoreCap);				//calculate score per frame and add it to our counter
 			currentScore.text = "Score: " +scoreCounter.ToString("F0");		//update the text on the UI to show the score
@@ -57,11 +60,13 @@ public class ScoreManager : MonoBehaviour {
 				highScore.text = "High Score: " + Mathf.Round(highScoreCounter);	//round it and display it on the UI
 				PlayerPrefs.SetFloat ("HighScore", highScoreCounter);				//update player prefs with the high score
 			}
-			pointsBar.transform.localScale = new Vector3 ((scoreCounter / scoreCap), pointsBar.transform.localScale.y, pointsBar.transform.localScale.z);
-		}
-		slowSpeedPoints.text = "Focus: "+Mathf.Round(thePlayerController.playerStats.focus)/*.ToString("F2")*/+" / "+thePlayerController.maxFocus;		//update the text that shows how much slow time points that remain
+            //need to ensure scoreCounter isn't 0, else you're dividing by zero.    value == 1 ? Periods.VariablePeriods : Periods.FixedPeriods
+            pointsBar.transform.localScale = new Vector3(scoreCap == 0 ? 0f : (scoreCounter / scoreCap), pointsBar.transform.localScale.y, pointsBar.transform.localScale.z);
+            //pointsBar.transform.localScale = new Vector3 ((scoreCounter / scoreCap), pointsBar.transform.localScale.y, pointsBar.transform.localScale.z);
+        }
+		slowSpeedPoints.text = "Focus: "+Mathf.Round(player.playerStats.focus)/*.ToString("F2")*/+" / "+player.maxFocus;		//update the text that shows how much slow time points that remain
 		//adjusts the scale of the coloured portion of the HP bar. scale of 1 = full, so divide amount left by max amount to get a normalised number to pass into this
-		speedBar.transform.localScale = new Vector3 (thePlayerController.playerStats.focus / thePlayerController.maxFocus, speedBar.transform.localScale.y, speedBar.transform.localScale.z);
+		speedBar.transform.localScale = new Vector3 (player.playerStats.focus / player.maxFocus, speedBar.transform.localScale.y, speedBar.transform.localScale.z);
 	
 		if (scoreCounter >= scoreCap && spawnedEnd == false) {				//check the score to see if it is ready to end the level
 			theMapGen.endOfLevel = true;									//tell the map generator to stop generating random map sections
@@ -71,11 +76,11 @@ public class ScoreManager : MonoBehaviour {
 			
 		//display the buff duration
 		if (buffDurationCounter > 0) {
-			buffDurationCounter -= Time.deltaTime; 
+			buffDurationCounter -= Time.unscaledDeltaTime; 
 		}
 		buffDurationText.text = ""+Mathf.Round(buffDurationCounter);
 		//PPStest.text = ""+pointsPerSecond;
-		//VelTest.text = thePlayerController.gameObject.GetComponent<Rigidbody2D> ().velocity.y.ToString();
+		//VelTest.text = player.gameObject.GetComponent<Rigidbody2D> ().velocity.y.ToString();
 	}
 		
 	public void AddScore(int amount){										//a way for other scripts to affect the score
@@ -86,21 +91,22 @@ public class ScoreManager : MonoBehaviour {
 		if (buff.gameObject.GetComponent<FocusBuff> () != null) {		//if buff of component type focusBuff, then set image to be blue one
 			//buffImage = buff.GetComponent<SpriteRenderer> ().sprite;
 			buffImage.GetComponent<Image>().overrideSprite = buffImages[0];
-			buffImage.color = new Color (1f, 1f, 1f, 1f);
-		}else if(buff.gameObject.GetComponent<PointBuff> () != null) {
+			buffImage.color = new Color (1f, 1f, 1f, 1f);       
+        }
+        else if(buff.gameObject.GetComponent<PointBuff> () != null) {
 			buffImage.GetComponent<Image>().overrideSprite = buffImages[1];
-			buffImage.color = new Color (1f, 1f, 1f, 1f);
-		} else {
+			buffImage.color = new Color (1f, 1f, 1f, 1f);          
+        } else {
 			Debug.Log ("Wasnt the right buff bro");
 		}
 		buffDurationText.color = new Color (1f, 1f, 1f, 1f);
-		buffDurationCounter = duration;
-		//else if it is a points buff, set it to be the green one
-		//else debug log
-		//set buffduration as duration
+        buffDurationCounter = duration;
+        //else if it is a points buff, set it to be the green one
+        //else debug log
+        //set buffduration as duration
 
 
-	}
+    }
 
 	public void hideBuff(){
 		buffImage.color = new Color (0.2f, 0.2f, 0.2f, 0.5f);

@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FocusPickup : Pickup {
-	[SerializeField] private int amountOfFocus;
-	private PlayerController thePlayer;
+public class FocusPickup : Pickup
+{
+    [SerializeField] private int amountToGive = 1;
+    private GenericPlayer thePlayer;
 
-	void Awake(){
-		thePlayer = FindObjectOfType<PlayerController>();		//we need this reference to adjust the focus points
-	}
+    protected override void Awake()
+    {
+        base.Awake();
+        thePlayer = FindObjectOfType<GenericPlayer>();       //we need this reference to adjust the focus points
+    }
 
-	public override void OnPickup (PlayerCollisionEvent other)
-	{	//define behaviour focus point pickups
-		thePlayer.slowSpeedPoints = Mathf.Clamp(thePlayer.slowSpeedPoints + amountOfFocus, 0, thePlayer.slowSpeedPointsMax);		
-			//call it's method which allows us to add points, passing to it the amount of points this coin is worth
-	}	
+    public override void OnPickup(PlayerCollisionEvent other)   //updates the statistics relating to the pickup, passing to it the amount of focus this pickup is worth
+    {   
+        thePlayer.playerStats.focus = Mathf.Clamp(thePlayer.playerStats.focus + amountToGive, 0, thePlayer.maxFocus);   
+    }
 }

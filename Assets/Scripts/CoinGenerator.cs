@@ -33,7 +33,7 @@ public class CoinGenerator : MonoBehaviour {
 			for (int i = 0; i < amountOfCoins; i++) {							//loop that many times, create a coin, place it and move along
 				GameObject theCoin = coinPool.Get(obj=>obj.GetComponent<PointPickup>() != null);
 				theCoin.transform.position = spawnPosition + new Vector3 (currentXoffset, 0f, 0f);
-                theCoin.GetComponent<ResettableObject>().resetPosition = theCoin.transform.position;
+                //theCoin.GetComponent<ResettableObject>().resetPosition = theCoin.transform.position;
                 theCoin.SetActive (true);
 				currentXoffset += gapBetweenCoins;								//update our current X offset so the next coin is placed gapBetweenCoins ahead of this one
 			}

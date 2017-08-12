@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
-  shouldReset: 1
+  shouldReset: 0
   buffDuration: 5
 --- !u!114 &114942309090163254
 MonoBehaviour:

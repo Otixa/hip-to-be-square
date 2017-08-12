@@ -6,7 +6,7 @@ using UnityEngine;
  * effect on the game state. This includes changing points modifiers, awarding poitns and restoring 
  * focus points. This will be extended by other sub-classes */
 
-[RequireComponent(typeof(Collider2D))]
+//[RequireComponent(typeof(Collider2D))]                This is already in EnvironmentObject
 public abstract class Pickup : EnvironmentObject {
 
     protected override void OnPlayerCollision(PlayerCollisionEvent other)
@@ -15,5 +15,5 @@ public abstract class Pickup : EnvironmentObject {
         gameObject.SetActive(false);
     }
 
-	public abstract void OnPickup (PlayerCollisionEvent other);
+	public abstract void OnPickup (PlayerCollisionEvent other);             //does this need to be public?
 }
