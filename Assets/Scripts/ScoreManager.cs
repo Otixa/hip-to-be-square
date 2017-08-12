@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour {
 	public string nameText;			//variable used to store the name to display in the UI
 	public float pointsPerSecond;	//this specifies how many points we should add to the score every second that passes
 	public bool scoringEnabled;		//this boolean controls whether or not points should be added to the score counter or not (when you die, points should stop increasing).
-	private PlayerController thePlayerController;			//reference needed so we can access character name and speed bar value
+	private GenericPlayer thePlayerController;			//reference needed so we can access character name and speed bar value
 	private MapSectionGenerator theMapGen;					//reference needed so we can stop generating map when we accumulate enough points
 	public GameObject speedBar;								//reference to the UI image that represents how much time slow down points we have remaining (the blue bar)
 	public bool spawnedEnd;								//boolean that ensures the endoflevel code is only executed once
@@ -30,9 +30,9 @@ public class ScoreManager : MonoBehaviour {
 
 	void Start () {
 		//Debug.Log ("I AM A SCORE MANAGER, I COME FROM ROUND YOUR WAY, WHAT CAN I PLAY!?");
-		thePlayerController = FindObjectOfType<PlayerController> ();		//get hold of the player
+		thePlayerController = FindObjectOfType<GenericPlayer> ();		    //get hold of the player
 		theMapGen = FindObjectOfType<MapSectionGenerator>();				//get hold of the MapGenerator
-		nameText = thePlayerController.playerName;							//grab the name field from the player
+		nameText = thePlayerController.playerStats.name;							//grab the name field from the player
 		playerName.text = nameText;											//set the text to show that name
 		scoreCounter = 0;													//set scores at 0 at the beginning
 		highScoreCounter = 0;												//this sets highscore to be 0, but will be updated if PlayerPrefs holds an existing high score
@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour {
 		}
 		highScore.text = "High Score: " + Mathf.Round(highScoreCounter);	//show the current highscore, we round it so we don't have decimal points in the score
 		scoringEnabled = true;												//at start of game scoring should be enabled
-		slowSpeedPoints.text = "Slow Time: "+thePlayerController.slowSpeedPoints.ToString("F2")+" / "+thePlayerController.slowSpeedPointsMax;	//display our speed points text (under the blue bar)
+		slowSpeedPoints.text = "Slow Time: "+thePlayerController.playerStats.focus.ToString("F2")+" / "+thePlayerController.playerStats.focus;	//display our speed points text (under the blue bar)
 		//speedBar.transform.localScale = new Vector3 ((thePlayerController.slowSpeedPoints / thePlayerController.slowSpeedPointsMax), speedBar.transform.localScale.y, speedBar.transform.localScale.z);
 		buffImage.color = new Color(0.5f,0.5f,0.5f, 0.2f);
 		buffDurationText.color = new Color (1f, 1f, 1f, 0f);
@@ -59,9 +59,9 @@ public class ScoreManager : MonoBehaviour {
 			}
 			pointsBar.transform.localScale = new Vector3 ((scoreCounter / scoreCap), pointsBar.transform.localScale.y, pointsBar.transform.localScale.z);
 		}
-		slowSpeedPoints.text = "Focus: "+Mathf.Round(thePlayerController.slowSpeedPoints)/*.ToString("F2")*/+" / "+thePlayerController.slowSpeedPointsMax;		//update the text that shows how much slow time points that remain
+		slowSpeedPoints.text = "Focus: "+Mathf.Round(thePlayerController.playerStats.focus)/*.ToString("F2")*/+" / "+thePlayerController.maxFocus;		//update the text that shows how much slow time points that remain
 		//adjusts the scale of the coloured portion of the HP bar. scale of 1 = full, so divide amount left by max amount to get a normalised number to pass into this
-		speedBar.transform.localScale = new Vector3 (thePlayerController.slowSpeedPoints / thePlayerController.slowSpeedPointsMax, speedBar.transform.localScale.y, speedBar.transform.localScale.z);
+		speedBar.transform.localScale = new Vector3 (thePlayerController.playerStats.focus / thePlayerController.maxFocus, speedBar.transform.localScale.y, speedBar.transform.localScale.z);
 	
 		if (scoreCounter >= scoreCap && spawnedEnd == false) {				//check the score to see if it is ready to end the level
 			theMapGen.endOfLevel = true;									//tell the map generator to stop generating random map sections

@@ -18,7 +18,7 @@ public abstract class ResettableObject : MonoBehaviour {
     }
 
     // Use this for initialization
-    private void Start () {                         //When First enabled                             (//Awake when initialised, regardless of being enabled or not)
+    protected virtual void Awake () {                                         //When First enabled                             (//Awake when initialised, regardless of being enabled or not)
         resetPosition = transform.position;
 	}
 

@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1889382683120922}
   m_IsPrefabParent: 1
+--- !u!1 &1178434101738750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4114822951914750}
+  m_Layer: 9
+  m_Name: HeadCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1517785174536752
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,11 +49,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4029897218395112}
-  - component: {fileID: 114539487856612410}
+  - component: {fileID: 114532710724583330}
   - component: {fileID: 212309488526346196}
   - component: {fileID: 50503242812526732}
-  - component: {fileID: 61766476166480058}
-  - component: {fileID: 58668746168083264}
   - component: {fileID: 70279433732502724}
   - component: {fileID: 95088444727800928}
   m_Layer: 9
@@ -55,12 +68,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889382683120922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.15, y: 3.06, z: 0}
+  m_LocalPosition: {x: -7.34, y: 3.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943778097436116}
+  - {fileID: 4114822951914750}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4114822951914750
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1178434101738750}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4029897218395112}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4943778097436116
 Transform:
@@ -93,48 +120,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58668746168083264
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1889382683120922}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.375}
-  serializedVersion: 2
-  m_Radius: 0.38
---- !u!61 &61766476166480058
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1889382683120922}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9576fe012ee6b1444a66fd0b8491943e, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.375}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.609375, y: 0.75}
-    newSize: {x: 0.609375, y: 0.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.76}
-  m_EdgeRadius: 0
 --- !u!70 &70279433732502724
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -167,7 +154,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114539487856612410
+--- !u!114 &114532710724583330
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -175,26 +162,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1889382683120922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09c57e73c901a940b0847fc935d8d33, type: 3}
+  m_Script: {fileID: 11500000, guid: 37b4f20b62967014884610765bb26ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: 
-  playerSpeed: 5
-  jumpForce: 8
-  jumpTime: 0.25
-  whatIsGround:
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 1
+  footSensorRadius: 0.1
+  headSensorRadius: 0.1
+  groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  feetCheck: {fileID: 4943778097436116}
-  groundCheckRadius: 0.1
-  theGameManager: {fileID: 0}
-  theCameraController: {fileID: 0}
-  slowSpeedPointsMax: 5
-  slowSpeedPoints: 0
-  slowDownModifier: 2
-  originalTimeScale: 0
-  theScoreManager: {fileID: 0}
-  winScreen: {fileID: 0}
+  freeFocus: 0
+  slowDownModifier: 0.5
+  maxFocus: 5
 --- !u!212 &212309488526346196
 SpriteRenderer:
   m_ObjectHideFlags: 1

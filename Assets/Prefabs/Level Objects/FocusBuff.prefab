@@ -66,10 +66,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1229879747743834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cffe9dc079e8af46bc67d1c51bcfa48, type: 3}
+  m_Script: {fileID: 11500000, guid: c21aef1782794a94a915900ca2503eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffDuration: 3
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 1
+  buffDuration: 5
 --- !u!114 &114942309090163254
 MonoBehaviour:
   m_ObjectHideFlags: 1

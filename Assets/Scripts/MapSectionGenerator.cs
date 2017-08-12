@@ -172,18 +172,19 @@ public class MapSectionGenerator : MonoBehaviour {
 					transform.position = new Vector3 (transform.position.x + gap + (theWidth / 2) , newPosY, transform.position.z); 
 					newSection.transform.position = transform.position;			//set the new sections co-ordinates to be equal to that of the Map Section Generator
 					newSection.transform.rotation = transform.rotation;			//think this is needed, despite nothing rotating in the game.
-					newSection.SetActive (true);								//BRING IT TO LIFE!
+					newSection.SetActive (true);                                //BRING IT TO LIFE!
 
-					////COINS >> Chance to spawn
-					/// Now we are in center of our new platform, we will spawn coins. See spawnCoinGroup for spawn details
-					if (newSection.GetComponent<ObjectSpawnBounds> ().canSpawnCoins) {
-						//IMPROVEMENT: Increase Y co-ordinate if the newSection is one of Chunks thud components!
-						theCoinGenerator.spawnCoinGroup (new Vector3 (transform.position.x, transform.position.y + 1f, transform.position.z), theWidth);
-					}
+                    ////COINS >> Chance to spawn
+                    /// Now we are in center of our new platform, we will spawn coins. See spawnCoinGroup for spawn details
+                    if (newSection.GetComponent<ObjectSpawnBounds>().canSpawnCoins)
+                    {
+                        //IMPROVEMENT: Increase Y co-ordinate if the newSection is one of Chunks thud components!
+                        theCoinGenerator.spawnCoinGroup(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), theWidth);
+                    }
 
-					//SPIKES >> Chance to spawn
-					//Before we move on our generation point, we will spawn spikes if the object can spawn spikes (property of platform) and based on it's spawn chance
-					if ((Random.Range (0f, 100f) < randomSpikeChance) && newSection.GetComponent<ObjectSpawnBounds> ().canSpawnSpikes) {
+                    //SPIKES >> Chance to spawn
+                    //Before we move on our generation point, we will spawn spikes if the object can spawn spikes (property of platform) and based on it's spawn chance
+                    if ((Random.Range (0f, 100f) < randomSpikeChance) && newSection.GetComponent<ObjectSpawnBounds> ().canSpawnSpikes) {
 						GameObject newSpike = spikePool.Get (obj => obj.name.Contains ("Spike"));
 						//this is creating a vector to add to our existing transform. It chooses a random x point on the platform, exlcuding the edges of platforms for fairness. 1.2 is suitable height for spike in relation to platform
 						Vector3 spikePosition = new Vector3 ((Random.Range (-(theWidth / 2) + 2, (theWidth / 2) - 2)), 1.2f, 0f);	//-2 and +2 here are an offset to allow non spiked edges to platforms			

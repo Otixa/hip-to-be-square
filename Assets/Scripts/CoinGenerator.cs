@@ -19,19 +19,22 @@ public class CoinGenerator : MonoBehaviour {
 	public void spawnCoinGroup(Vector3 spawnPosition, float width){
 		int amountOfCoins = (int)Random.Range(1, width+1);					//choose a random amount of coins from 1 to width+1
 		int gapFromEdge = 1;												//set the gap on either side of platform you want before coins are spawned
-		gapBetweenCoins = (width - (2*gapFromEdge)) / (amountOfCoins-1);	//calculate an even amount of gap to put between each of the coins
-		float currentXoffset = 0;											//this variable keeps track of the x-cordinate as we loop and place amountOfCoins along the platform
+			//calculate an even amount of gap to put between each of the coins
+												//this variable keeps track of the x-cordinate as we loop and place amountOfCoins along the platform
 		if (amountOfCoins == 1) {											//there is no gap between 1 coin, so instead we just spawn the coin in the center of the platform
 			GameObject theCoin = coinPool.Get(obj=>obj.GetComponent<PointPickup>() != null);
 			theCoin.transform.position = spawnPosition;
 			theCoin.SetActive (true);
-		} else {																//if there are more than 1 coin to be spawn
-			spawnPosition = spawnPosition - new Vector3(width/2, 0f, 0f);		//go back to start of platform
+		} else {
+            float currentXoffset = 0;
+            gapBetweenCoins = (width - (2 * gapFromEdge)) / (amountOfCoins - 1);//if there are more than 1 coin to be spawn
+            spawnPosition = spawnPosition - new Vector3(width/2, 0f, 0f);		//go back to start of platform
 			spawnPosition = spawnPosition + new Vector3(gapFromEdge, 0f, 0f);	//add the gapFromEdge to inset the spawnPosition;
 			for (int i = 0; i < amountOfCoins; i++) {							//loop that many times, create a coin, place it and move along
 				GameObject theCoin = coinPool.Get(obj=>obj.GetComponent<PointPickup>() != null);
 				theCoin.transform.position = spawnPosition + new Vector3 (currentXoffset, 0f, 0f);
-				theCoin.SetActive (true);
+                theCoin.GetComponent<ResettableObject>().resetPosition = theCoin.transform.position;
+                theCoin.SetActive (true);
 				currentXoffset += gapBetweenCoins;								//update our current X offset so the next coin is placed gapBetweenCoins ahead of this one
 			}
 		}

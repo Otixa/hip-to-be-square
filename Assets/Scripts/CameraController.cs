@@ -7,7 +7,7 @@ using UnityEngine;
  * of the screen. */
 public class CameraController : MonoBehaviour {
 	
-	private PlayerController thePlayerController;	//so we can get hold of our player in order to follow his X co-ordinate through the game
+	private GenericPlayer thePlayerController;	//so we can get hold of our player in order to follow his X co-ordinate through the game
 	private Vector3 previousPlayerPosition;			//variable to store the players position, we will use this to update the cameras position relative to the player
 	private float distanceMoved;					//to store gap between camera and player
 	private float originalCameraHeight;				//store the starting height of camera, to return to when camera pans up at top of map.
@@ -16,8 +16,8 @@ public class CameraController : MonoBehaviour {
 	public bool endOfLevel;							//a boolean that is turned on to tell the player end of level is reached, and no need to continue running indefintely!
 	public float viewOffset = 6;
 
-	void Start () {
-		thePlayerController = FindObjectOfType<PlayerController> ();		//instantiate the playerController Object
+    void Start () {
+		thePlayerController = FindObjectOfType<GenericPlayer> ();		    //instantiate the playerController Object
 		previousPlayerPosition = thePlayerController.transform.position;	////we use a vector 3 as we will need to use 3D coords for the camera object, even if only using 2D
 		originalCameraHeight = transform.position.y;						//set the original camera height to a variable, so we can refer back to it later when moving camera up and down
 		maxCameraHeight = originalCameraHeight * 1.25f;						//define how much we want the camera to be able to scroll upwards when you're near top of screen (so if original height was 10, it can go to 12.5)

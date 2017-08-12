@@ -7,7 +7,7 @@ using UnityEngine.Events;
  * this includes initialisation of the game, pausing, restarting, keeping scores. */
 public class GameManager : MonoBehaviour {
 	
-	public PlayerController thePlayer;					//as we will be setting the player position at the start of game, we need his controller
+	public GenericPlayer thePlayer;					    //as we will be setting the player position at the start of game, we need his controller
 	private Vector3 playerStartPoint;					//we need to store the start point of player so the player restarts consistently
 	//public Transform sectionGenerator;				//NOW USE "THE MAP GEN" IN ORDER TO GET THE TRANSFORM
 	private Vector3 sectionStartPoint;					//we need to store where the section generator actually started 
@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour {
 		theScoreManager = FindObjectOfType<ScoreManager> ();
 		theMapGen = FindObjectOfType<MapSectionGenerator>();			
 		theCameraController = FindObjectOfType<CameraController> ();
-		sectionStartPoint = theMapGen.transform.position;				//keep note of the start position of section generator so that we can reset back to start position !!
+        thePlayer = FindObjectOfType<Joe>();
+        sectionStartPoint = theMapGen.transform.position;				//keep note of the start position of section generator so that we can reset back to start position !!
 		playerStartPoint = thePlayer.transform.position;				//keep note of the start position of the player so that we can reset back to start position
 		if (disableMapGen) {											//if you do not want map generation
 			theMapGen.stopGeneration = true;							//disable variables that allow the map generation with the MapSectionGenerator script
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour {
 		theScoreManager.spawnedEnd = false;								//reset this, allowing us to meet the winning criteria again
 		Time.timeScale = 1f;											//reset the time to regular speed, incase player died during slow down
 		powerupReset = true;											//this boolean ensures any powerups that were running upon death / game reset
-		thePlayer.slowSpeedPoints = thePlayer.slowSpeedPointsMax;		//reset the slowdown points of the player
+		thePlayer.playerStats.focus = thePlayer.maxFocus;		//reset the slowdown points of the player
 		if(!disableMapGen){	
 			theMapGen.stopGeneration = false;								//reset the boolean that stops all generation, incase they died at end of level
 			theMapGen.endOfLevel = false;									//reset boolean that stops the random platforms being generated, and starts the "end zone" generation

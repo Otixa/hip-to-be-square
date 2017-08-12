@@ -66,10 +66,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018112262336388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b20156eabd4a041b15bb5a3199e33e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8456c00cda17efb4c8a9bb84c44d433c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfPoints: 20
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 1
+  amountOfPoints: 0
 --- !u!114 &114853176485725218
 MonoBehaviour:
   m_ObjectHideFlags: 1

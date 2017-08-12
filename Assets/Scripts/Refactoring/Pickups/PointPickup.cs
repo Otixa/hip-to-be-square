@@ -7,7 +7,8 @@ public class PointPickup : Pickup {
 	[SerializeField] private int amountOfPoints;
 	private ScoreManager theScoreManager;
 
-	void Awake(){
+	protected override void Awake(){
+        base.Awake();
 		theScoreManager = FindObjectOfType<ScoreManager>();			//we need this so we can call the add points function within it
 	}
 

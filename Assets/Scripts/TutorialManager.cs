@@ -7,11 +7,12 @@ public class TutorialManager : MonoBehaviour {
 	public Text tut_text;
 	public bool popupActive;
 	public GameObject tutorialMessage;
-	public PlayerController thePlayerController;
+	private GenericPlayer thePlayerController;
 
 	// Use this for initialization
 	void Start () {
-		//SetTutorialText("Let's learn a little about Joe. ");
+        //SetTutorialText("Let's learn a little about Joe. ");
+        thePlayerController = FindObjectOfType<GenericPlayer>();
 	}
 	
 	// Update is called once per frame
