@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,5 +18,10 @@ public class DeathPopup : MonoBehaviour {
     public void MainMenu()
     {                                                               //this function will be linked to the click of the Main Menu button
         GameManager2.Instance.LoadMainMenu();
+    }
+
+    public static explicit operator GameObject(DeathPopup v)
+    {
+        throw new NotImplementedException();
     }
 }

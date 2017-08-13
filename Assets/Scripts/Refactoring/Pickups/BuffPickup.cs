@@ -68,6 +68,11 @@ public abstract class BuffPickup : Pickup {
         return _activeBuff;
     }
 
+    //public static float GetDuration()
+    //{
+    //    return buffDuration;
+    //}
+
     /// <summary>
     /// Method executed when BuffPickup is activated.
     /// </summary>
