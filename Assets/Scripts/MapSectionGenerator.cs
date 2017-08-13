@@ -167,7 +167,7 @@ public class MapSectionGenerator : MonoBehaviour {
 						(transform.position + new Vector3 (gap / 2f, powerupHeight, 0f));	//get a powerup from the pool
 					}
 
-					//our generator lives on the END of the last generated section. So we need to move on the gap amount, then half the way into the next generated section (as platform origin is in it's center).
+                    //our generator lives on the END of the last section. So we need to move on the gap amount, then half the way into the next generated section (as platform origin is in it's center).
 					//At the end of the update method, we move along another half, so we are sitting back at the end of the platform ready for the next update call.
 					transform.position = new Vector3 (transform.position.x + gap + (theWidth / 2) , newPosY, transform.position.z); 
 					newSection.transform.position = transform.position;			//set the new sections co-ordinates to be equal to that of the Map Section Generator

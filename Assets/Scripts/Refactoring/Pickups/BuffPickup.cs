@@ -63,6 +63,11 @@ public abstract class BuffPickup : Pickup {
     }
     #endregion
 
+    public static BuffPickup GetActive()
+    {
+        return _activeBuff;
+    }
+
     /// <summary>
     /// Method executed when BuffPickup is activated.
     /// </summary>

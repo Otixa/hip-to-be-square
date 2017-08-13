@@ -90,8 +90,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
+  deathMessages:
+  - Buy one get one free on all piercings.
+  - You're looking very hole-some
+  - SPIKE IN YO FACE.
 --- !u!212 &212513889482123336
 SpriteRenderer:
   m_ObjectHideFlags: 1

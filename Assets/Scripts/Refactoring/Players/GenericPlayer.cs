@@ -8,7 +8,7 @@ public struct PlayerStats
     public Vector3 position;
     public float focus;
     public Vector3 velocity;
-    public int deaths;
+    public int attempts;
 }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]     //!!is this the correct way to require both?
@@ -59,7 +59,8 @@ public abstract class GenericPlayer : ResettableObject {
         _collider = GetComponent<Collider2D>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-	}
+        GameManager2.Instance.OnGameReset += ResetLevel;
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -163,6 +164,12 @@ public abstract class GenericPlayer : ResettableObject {
     {
         playerStats.position = transform.position;
         playerStats.velocity = _rigidbody.velocity;
+    }
+
+    protected void ResetLevel()
+    {
+        transform.position = resetPosition;
+        playerStats.focus = maxFocus;
     }
 
     private Vector3 GetFeetPosition()

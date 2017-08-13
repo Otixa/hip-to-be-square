@@ -5,7 +5,8 @@ using UnityEngine;
 /* This component acts as a list of fields / parameters for the map section objects, that affect their behaviour
  * when generating the map dynamically. */
 public class ObjectSpawnBounds : MonoBehaviour {
-	/* These set the bounds on where a section can spawn when generated, ensuring it isn't too low or high.
+	/* These set the bounds on where a section can spawn when 
+     * , ensuring it isn't too low or high.
 	 * This is important because some sections require a drop for example, so can't be too low. */
 	public float sectionMaxHeight = 8;	//8 leaves one space to run at top of screen, so the default max.
 	public float sectionMinHeight = 0;	//0 is spawned in the lava, the literal lowest point you can run.
