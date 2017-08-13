@@ -8,9 +8,9 @@ public class FatalObject : EnvironmentObject {
    
     protected override void OnPlayerCollision(PlayerCollisionEvent other)
     {
-        if (GameManager2.Instance.OnLevelFinish != null)
+        if (GameManager2.Instance.OnPlayerDeath != null)
         {
-            GameManager2.Instance.OnLevelFinish.Invoke();             //invoke the event, to be picked up by the Level Generator
+            GameManager2.Instance.OnPlayerDeath.Invoke(this);             //invoke the event, to be picked up by the Level Generator
         }
     }
 

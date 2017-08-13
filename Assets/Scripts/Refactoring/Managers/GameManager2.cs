@@ -86,17 +86,6 @@ public class GameManager2 : Singleton<GameManager2>
     {
         scoreCounter = 0;
         BuffPickup.GetActive().Cancel();
-
-        //A working method to deactivate buffs. problem is, there will only be one active buff so this is inefficient          !!There is a static BuffPickup item that holds reference to the active buff
-        //BuffPickup[] activeBuffs = Resources.FindObjectsOfTypeAll<BuffPickup>();                                               //maybe we just need to access that / have the buff listen for events and call                                   //the cancel() function on reset? Reset event would be desirable. 
-        //for (int i = 0; i < activeBuffs.Length; i++)
-        //{
-        //    if (activeBuffs[i].IsInvoking())
-        //    {
-        //        activeBuffs[i].Cancel();
-        //    }
-        //}
-
         scoreCounter = 0;                              //set score back to 0 ready for a new game,             
         scoringEnabled = true;                         //re-enable scoring once the new game begin             !!if distance travelled, then won't need this
         spawnedEnd = false;                            //reset this, allowing us to meet the winning criteria again

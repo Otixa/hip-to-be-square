@@ -18,7 +18,7 @@ public class UIManager : Singleton<UIManager>
     public Sprite[] buffImages;                         //to store the images for the buff UI#
     public GameObject speedBar;                         //reference to the UI image that represents how much time slow down points we have remaining (the blue bar)
     public GameObject pointsBar;                        //reference to the image that represents the numbers of points gained
-    public DeathPopup deathMenu;                        //deathMenu is a game object with image and text and clickable button (restart, menu button)
+    public GameObject deathMenu;                        //deathMenu is a game object with image and text and clickable button (restart, menu button)
     //public PausePopup pauseMenu;                      //pauseMenu is game object with image, text and clickable buttons (resume, restart, menu button)
     //public TextOnlyPopup textPopup;                   //used to display an image background with text only (template includes instruction on how to dismiss the message).
     //public TextAndImagePopup textPopup;               //used to display an image background, an image and some text (template includes instruction on how to dismiss the message).
@@ -27,10 +27,12 @@ public class UIManager : Singleton<UIManager>
     private LevelGenerator levelGenerator;              //reference needed so we can stop generating map when we accumulate enough points
     private float buffDurationCounter;                  //this used to keep track of remaining time and then display in the GUI
 
+    public Canvas UICanvas;
+    public Action<GameObject> OnDialogDismiss;
     //from tutorial manager
-    public Text tut_text;
-    public bool popupActive;
-    public GameObject tutorialMessage;
+    //public Text tut_text;
+    //public bool popupActive;
+    //public GameObject tutorialMessage;
 
 
 
@@ -38,11 +40,19 @@ public class UIManager : Singleton<UIManager>
 
     private void Awake()
     {
+       
         GameManager2.Instance.OnPlayerDeath += OnDeath;     //subscribe to the event OnPlayerDeath, and run the OnDeath() function when invoked
+        OnDialogDismiss += TestingEvent;
+    }
+
+    public void TestingEvent(GameObject go)
+    {
+        Debug.Log("I am a test event, what are you?");
     }
 
     void Start()
     {
+        UICanvas = GetComponent<Canvas>();
         player = FindObjectOfType<GenericPlayer>();                         //get hold of the player                !!is there another way around having to find the player, probably not
         levelGenerator = FindObjectOfType<LevelGenerator>();                //get hold of the MapGenerator
         playerName.text = player.playerStats.name;                          //grab the name field from the player                                           
@@ -50,6 +60,7 @@ public class UIManager : Singleton<UIManager>
         buffImage.color = new Color(0.5f, 0.5f, 0.5f, 0.2f);                //sets the buff image to be greyed out when inactive
         buffDurationText.color = new Color(1f, 1f, 1f, 0f);                 //sets the buff text to be invisible inactive
     }
+
 
     // Update is called once per frame
     void Update()
@@ -99,7 +110,7 @@ public class UIManager : Singleton<UIManager>
     private void OnDeath(MonoBehaviour cause)
     {
         string deathMessage = "Unable to get deathmessage from event";
-        deathMenu.gameObject.SetActive(true);
+        //deathMenu.gameObject.SetActive(true);
         if (cause is FatalObject)
         {
             deathMessage = ((FatalObject)cause).GetDeathMessage();
@@ -110,37 +121,46 @@ public class UIManager : Singleton<UIManager>
 
     public void LoadPopup(GameObject popupType, string message/*, Action Callback*/)
     {
-        popupType.SetActive(true);                                              //Allow the UI Prefab to be visible
-        popupType.GetComponentInChildren<Text>().text = message;                //there are more than one text component, we need a way of being more specific
-        player.enabled = false;                                                 //stop the player script from running (restrict movement and input conflicts (like jumping and dimissing message))
-        //Callback.Invoke();                                                    //Invoke the code we want to run once the popup has been loaded
+        //var popup = Instantiate(popupType, Vector3.zero, Quaternion.identity, transform.parent) as GameObject;
+        var popup = Instantiate(popupType, this.transform.position, Quaternion.identity, this.transform) as GameObject;
+        popup.GetComponentInChildren<Text>().text = message;                //there are more than one text component, we need a way of being more specific
+
+        //float timeoutTimer = 10f;
+        //Time.timeScale = 0f;
+        
+        //while (!Input.GetButtonDown("Jump") || timeoutTimer > 0)
+        //{
+        //    Debug.Log("I'm in the message popup timer loop");
+        //    timeoutTimer -= Time.unscaledDeltaTime;
+        //}
+        //Time.timeScale = 1f;
+        //Debug.Log("I'm out of it!");
+        //Destroy(popup);
+        //Callback.Invoke();                                   //Invoke the code we want to run once the popup has been loaded
         // we need a way to stop time, and to reenable time and player script upon input / button click. disable the popup,
     }
 
-    /* TUTORIAL MANAGER */
+    public GameObject CreatePopupByResourceName(string resourceName)
+    {
+        GameObject prefab = Resources.Load<GameObject>("UI/" + resourceName) as GameObject;
+        GameObject uip = Instantiate(prefab, UICanvas.transform.position, UICanvas.transform.rotation, UICanvas.transform) as GameObject;
+        uip.SetActive(false);
+        return uip;
+    }
 
+    public void DestroyPopup(GameObject popup)
+    {
+        Debug.Log("BUTTON PRESSED");
+        Debug.Log(OnDialogDismiss);
+        if (OnDialogDismiss != null)
+        {
+            Debug.Log("INVOKING FROM UI MANAGER");
+            OnDialogDismiss.Invoke(popup);
+            
+        }
+        Destroy(popup);
+    }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (popupActive && Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        popupActive = false;
-    //        tutorialMessage.SetActive(false);//disable the UI text
-    //        Time.timeScale = 1f;
-    //        player.enabled = true;
-    //    }
-    //}
-
-    //public void SetTutorialText(string message)
-    //{
-    //    Time.timeScale = 0f;                //pause the game
-    //    tut_text.text = message;
-    //    tutorialMessage.SetActive(true);    //enable UI text
-    //    popupActive = true;
-    //    player.enabled = false;             //disable the player controller script - FOR NOW
-    //}
-
-
+    
 
 }

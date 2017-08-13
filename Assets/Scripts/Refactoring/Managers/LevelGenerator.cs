@@ -32,7 +32,7 @@ public class LevelGenerator : MonoBehaviour {
     public bool randomLevelGenerationEnabled = true;            //flag to turn off when you don't want this map generator to create generated content
     
     void Start () {
-        generationTriggerPoint = GameObject.Find("GenerationPoint").transform;          //get our reference to the generation point for future use
+        generationTriggerPoint = GameObject.Find("GenerationTriggerPoint").transform;          //get our reference to the generation point for future use
         levelGeneratorStartPos = transform.position;
     }
 

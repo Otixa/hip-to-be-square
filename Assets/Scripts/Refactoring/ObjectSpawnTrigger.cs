@@ -10,8 +10,7 @@ public class ObjectSpawnTrigger : PersistentPlayerTrigger {
 
     public override void WhenTriggered(PlayerCollisionEvent other)
     {
-        objectToSpawn.transform.position = new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z);
-        objectToSpawn.SetActive(true);
+        Instantiate(objectToSpawn, new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z), Quaternion.identity);
     }
 
     // Use this for initialization
