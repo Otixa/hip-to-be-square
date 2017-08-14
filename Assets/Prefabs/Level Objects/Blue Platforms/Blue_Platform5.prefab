@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4050771638459544}
   - component: {fileID: 61556773095575420}
-  - component: {fileID: 114759311630716172}
   - component: {fileID: 114737853979825446}
+  - component: {fileID: 114239003106148932}
   m_Layer: 8
   m_Name: Blue_Platform5
   m_TagString: Untagged
@@ -217,6 +217,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114239003106148932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350599110886348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepActive: 0
 --- !u!114 &114737853979825446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,19 +246,6 @@ MonoBehaviour:
   canSpawnCoins: 1
   canSpawnSpikes: 1
   width: 5
-  isDestroyable: 1
---- !u!114 &114759311630716172
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1350599110886348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keepActive: 0
 --- !u!212 &212044739515817830
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4845527969434834}
   - component: {fileID: 61568959852250448}
   - component: {fileID: 114780769189169644}
-  - component: {fileID: 114515063044751682}
+  - component: {fileID: 114124356371843050}
   m_Layer: 8
   m_Name: green_plat_1
   m_TagString: Untagged
@@ -97,7 +97,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114515063044751682
+--- !u!114 &114124356371843050
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1642000820126392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   keepActive: 0
@@ -123,10 +123,9 @@ MonoBehaviour:
   sectionMaxHeight: 8
   sectionMinHeight: 1
   endPointOffSet: 0
-  canSpawnCoins: 0
+  canSpawnCoins: 1
   canSpawnSpikes: 0
   width: 1
-  isDestroyable: 1
 --- !u!212 &212265614472229632
 SpriteRenderer:
   m_ObjectHideFlags: 1

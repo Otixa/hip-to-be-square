@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 4791227458590960}
   - component: {fileID: 212314346750655678}
   - component: {fileID: 68240091668613292}
+  - component: {fileID: 114049658723928708}
   m_Layer: 0
   m_Name: Spike (11)
   m_TagString: triggerdeath
@@ -223,6 +224,7 @@ GameObject:
   - component: {fileID: 4037768895777928}
   - component: {fileID: 212724782483330708}
   - component: {fileID: 68940835508982820}
+  - component: {fileID: 114592508400903602}
   m_Layer: 0
   m_Name: Spike (16)
   m_TagString: triggerdeath
@@ -240,6 +242,7 @@ GameObject:
   - component: {fileID: 4877967300944774}
   - component: {fileID: 212950346643686390}
   - component: {fileID: 68215162469644008}
+  - component: {fileID: 114155675984034734}
   m_Layer: 0
   m_Name: Spike (12)
   m_TagString: triggerdeath
@@ -257,6 +260,7 @@ GameObject:
   - component: {fileID: 4231089749974248}
   - component: {fileID: 212070814235153856}
   - component: {fileID: 68987648304415334}
+  - component: {fileID: 114202177936404696}
   m_Layer: 0
   m_Name: Spike (15)
   m_TagString: triggerdeath
@@ -274,6 +278,7 @@ GameObject:
   - component: {fileID: 4158785783947098}
   - component: {fileID: 212613600331500746}
   - component: {fileID: 68016701864313110}
+  - component: {fileID: 114426118927521382}
   m_Layer: 0
   m_Name: Spike (15)
   m_TagString: triggerdeath
@@ -308,6 +313,7 @@ GameObject:
   - component: {fileID: 4616751533531966}
   - component: {fileID: 212764657363173900}
   - component: {fileID: 68971695765071368}
+  - component: {fileID: 114722610688134756}
   m_Layer: 0
   m_Name: Spike (15)
   m_TagString: triggerdeath
@@ -342,6 +348,7 @@ GameObject:
   - component: {fileID: 4638024373940126}
   - component: {fileID: 212480231697237082}
   - component: {fileID: 68828547664891278}
+  - component: {fileID: 114837372061021104}
   m_Layer: 0
   m_Name: Spike (15)
   m_TagString: triggerdeath
@@ -376,6 +383,7 @@ GameObject:
   - component: {fileID: 4379058946450050}
   - component: {fileID: 212006106539327564}
   - component: {fileID: 68570982390611506}
+  - component: {fileID: 114808039922743520}
   m_Layer: 0
   m_Name: Spike (16)
   m_TagString: triggerdeath
@@ -409,8 +417,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4479846483319892}
   - component: {fileID: 61942428943390640}
-  - component: {fileID: 114373257293506976}
   - component: {fileID: 114628085525083632}
+  - component: {fileID: 114320762352443378}
   m_Layer: 8
   m_Name: Chunk_Section5
   m_TagString: Untagged
@@ -479,6 +487,7 @@ GameObject:
   - component: {fileID: 4678520467663254}
   - component: {fileID: 212887275068457808}
   - component: {fileID: 68405933695839994}
+  - component: {fileID: 114415503658077234}
   m_Layer: 0
   m_Name: Spike (12)
   m_TagString: triggerdeath
@@ -496,6 +505,7 @@ GameObject:
   - component: {fileID: 4225309004177398}
   - component: {fileID: 212225870133860274}
   - component: {fileID: 68797919989084988}
+  - component: {fileID: 114256926329843450}
   m_Layer: 0
   m_Name: Spike (16)
   m_TagString: triggerdeath
@@ -547,6 +557,7 @@ GameObject:
   - component: {fileID: 4448566238139666}
   - component: {fileID: 212579865422302606}
   - component: {fileID: 68903862254419204}
+  - component: {fileID: 114050366609055006}
   m_Layer: 0
   m_Name: Spike (11)
   m_TagString: triggerdeath
@@ -579,6 +590,7 @@ GameObject:
   - component: {fileID: 4006454494426444}
   - component: {fileID: 212361335748690418}
   - component: {fileID: 68266369459933902}
+  - component: {fileID: 114146406540462512}
   m_Layer: 0
   m_Name: Spike (12)
   m_TagString: triggerdeath
@@ -660,6 +672,7 @@ GameObject:
   - component: {fileID: 4288488105676864}
   - component: {fileID: 212682380686367262}
   - component: {fileID: 68362060540534900}
+  - component: {fileID: 114727255830336554}
   m_Layer: 0
   m_Name: Spike (11)
   m_TagString: triggerdeath
@@ -934,7 +947,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1603703243021470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 753.6, y: 372.8, z: 0}
+  m_LocalPosition: {x: 6.2453346, y: 5.5448484, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4744342567590516}
@@ -2048,7 +2061,91 @@ EdgeCollider2D:
   - {x: 0.16795301, y: -0.1821213}
   - {x: 0.34734207, y: 0.2152336}
   - {x: 0.44294837, y: -0.2048419}
---- !u!114 &114373257293506976
+--- !u!114 &114049658723928708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303580498299158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114050366609055006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813788533389942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114146406540462512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1828292964079574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114155675984034734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377638364165674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114202177936404696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1397804953876392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114256926329843450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709529274020610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114320762352443378
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2056,10 +2153,52 @@ MonoBehaviour:
   m_GameObject: {fileID: 1603703243021470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   keepActive: 0
+--- !u!114 &114415503658077234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681109585329530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114426118927521382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430440133401560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114592508400903602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1359815892706336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
 --- !u!114 &114628085525083632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2077,6 +2216,62 @@ MonoBehaviour:
   canSpawnCoins: 0
   canSpawnSpikes: 0
   width: 8
+--- !u!114 &114722610688134756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445864108754752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114727255830336554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977511048363044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114808039922743520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1601239770147292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114837372061021104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585450295398240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
 --- !u!212 &212006106539327564
 SpriteRenderer:
   m_ObjectHideFlags: 1

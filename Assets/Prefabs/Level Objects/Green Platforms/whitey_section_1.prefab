@@ -156,8 +156,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4517964225953584}
   - component: {fileID: 114312786800452724}
-  - component: {fileID: 114251981644651236}
   - component: {fileID: 61853880055022684}
+  - component: {fileID: 114838149130299524}
   m_Layer: 0
   m_Name: whitey_section_1
   m_TagString: Untagged
@@ -515,17 +515,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114251981644651236
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1905308526314246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114312786800452724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,7 +531,19 @@ MonoBehaviour:
   endPointOffSet: 5
   canSpawnCoins: 0
   canSpawnSpikes: 0
-  isDestroyable: 1
+  width: 8
+--- !u!114 &114838149130299524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905308526314246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepActive: 0
 --- !u!212 &212272526308815508
 SpriteRenderer:
   m_ObjectHideFlags: 1

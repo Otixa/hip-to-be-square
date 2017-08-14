@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 4767332581746864}
   - component: {fileID: 212138895281973062}
   - component: {fileID: 68709866008003288}
+  - component: {fileID: 114405300356498580}
   m_Layer: 0
   m_Name: Spike (1)
   m_TagString: triggerdeath
@@ -91,6 +92,7 @@ GameObject:
   - component: {fileID: 4449123012101330}
   - component: {fileID: 212406467838982950}
   - component: {fileID: 68011105953300580}
+  - component: {fileID: 114318918235924622}
   m_Layer: 0
   m_Name: Spike (5)
   m_TagString: triggerdeath
@@ -263,6 +265,7 @@ GameObject:
   - component: {fileID: 4004573749626744}
   - component: {fileID: 212113605873790462}
   - component: {fileID: 68588932052795654}
+  - component: {fileID: 114603337715218402}
   m_Layer: 0
   m_Name: Spike (3)
   m_TagString: triggerdeath
@@ -331,6 +334,7 @@ GameObject:
   - component: {fileID: 4393727372102288}
   - component: {fileID: 212963873529790904}
   - component: {fileID: 68729770614968412}
+  - component: {fileID: 114863039973529744}
   m_Layer: 0
   m_Name: Spike (2)
   m_TagString: triggerdeath
@@ -364,8 +368,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4177507972086448}
   - component: {fileID: 61544304510688874}
-  - component: {fileID: 114155785441358086}
   - component: {fileID: 114610005639435350}
+  - component: {fileID: 114002489849900260}
   m_Layer: 0
   m_Name: Chunk_Section3
   m_TagString: Untagged
@@ -383,6 +387,7 @@ GameObject:
   - component: {fileID: 4730287434092998}
   - component: {fileID: 212107260902344728}
   - component: {fileID: 68140710049964038}
+  - component: {fileID: 114073100003210716}
   m_Layer: 0
   m_Name: Spike (4)
   m_TagString: triggerdeath
@@ -449,7 +454,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827042787720574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.8, y: 3.02, z: 0}
+  m_LocalPosition: {x: 5.9331303, y: 3.6476045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458443198184710}
@@ -1272,6 +1277,32 @@ EdgeCollider2D:
   - {x: 0.16795301, y: -0.1821213}
   - {x: 0.34734207, y: 0.2152336}
   - {x: 0.44294837, y: -0.2048419}
+--- !u!114 &114002489849900260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827042787720574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepActive: 0
+--- !u!114 &114073100003210716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959891124011732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
 --- !u!114 &114154698423510038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1283,18 +1314,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d31e4e647fd9a4cb80825a393742b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114155785441358086
+--- !u!114 &114318918235924622
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1827042787720574}
+  m_GameObject: {fileID: 1197020133591396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keepActive: 0
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114405300356498580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192857286150880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
+--- !u!114 &114603337715218402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642367322656494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
 --- !u!114 &114610005639435350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1312,6 +1373,20 @@ MonoBehaviour:
   canSpawnCoins: 1
   canSpawnSpikes: 0
   width: 8
+--- !u!114 &114863039973529744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782054020978614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbec5c6921dbca54b9c319b7992f2376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPosition: {x: 0, y: 0, z: 0}
+  shouldReset: 0
+  deathMessages: []
 --- !u!114 &114927476742346186
 MonoBehaviour:
   m_ObjectHideFlags: 1

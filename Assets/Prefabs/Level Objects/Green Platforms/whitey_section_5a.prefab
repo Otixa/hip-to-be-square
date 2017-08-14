@@ -75,8 +75,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4690659923499808}
   - component: {fileID: 114809121005959254}
-  - component: {fileID: 114879183411219098}
   - component: {fileID: 61792879832892920}
+  - component: {fileID: 114387669754281042}
   m_Layer: 0
   m_Name: whitey_section_5a
   m_TagString: Untagged
@@ -236,7 +236,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298628330211290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 93, y: 0, z: 0}
+  m_LocalPosition: {x: 64.44277, y: 3.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818866654243730}
@@ -680,6 +680,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c094f6ba53e127429cfc85339dda04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114387669754281042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1298628330211290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepActive: 0
 --- !u!114 &114464411185134548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,18 +741,7 @@ MonoBehaviour:
   endPointOffSet: 0
   canSpawnCoins: 1
   canSpawnSpikes: 0
-  isDestroyable: 1
---- !u!114 &114879183411219098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1298628330211290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  width: 8
 --- !u!212 &212129948294075838
 SpriteRenderer:
   m_ObjectHideFlags: 1

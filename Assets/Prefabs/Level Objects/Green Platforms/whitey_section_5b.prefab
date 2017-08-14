@@ -92,8 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4822244305459522}
   - component: {fileID: 114409845187492408}
-  - component: {fileID: 114039201773357426}
   - component: {fileID: 61348594751559554}
+  - component: {fileID: 114742880373770482}
   m_Layer: 0
   m_Name: whitey_section_5b
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627214547698334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.57, y: 1.3730986, z: 0}
+  m_LocalPosition: {x: 72.23, y: 5.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4917981059941316}
@@ -335,18 +335,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114039201773357426
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627214547698334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keepActive: 0
 --- !u!114 &114193366741755892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,7 +363,6 @@ MonoBehaviour:
   canSpawnCoins: 1
   canSpawnSpikes: 0
   width: 4
-  isDestroyable: 1
 --- !u!114 &114711868833958178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,6 +374,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c094f6ba53e127429cfc85339dda04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114742880373770482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627214547698334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepActive: 0
 --- !u!212 &212021526473012154
 SpriteRenderer:
   m_ObjectHideFlags: 1
