@@ -28,26 +28,26 @@ public class UIManager : Singleton<UIManager>
     private float buffDurationCounter;                  //this used to keep track of remaining time and then display in the GUI
 
     public Canvas UICanvas;
-    public Action<GameObject> OnDialogDismiss;
+    public static Action<GameObject> OnDialogDismiss;       //!!NEED TO MAKE EVENTS STATIC IF ON A SINGLETON
+    public static Action OnDialogOpen;
+    public static Action OnDialogClose;
     //from tutorial manager
     //public Text tut_text;
     //public bool popupActive;
     //public GameObject tutorialMessage;
-
-
 
     private UIManager() { }                             //Constructor needed for Singleton structures
 
     private void Awake()
     {
        
-        GameManager2.Instance.OnPlayerDeath += OnDeath;     //subscribe to the event OnPlayerDeath, and run the OnDeath() function when invoked
+        GameManager2.OnPlayerDeath += OnDeath;     //subscribe to the event OnPlayerDeath, and run the OnDeath() function when invoked
         OnDialogDismiss += TestingEvent;
     }
 
     public void TestingEvent(GameObject go)
     {
-        Debug.Log("I am a test event, what are you?");
+        //Debug.Log("I am a test event, what are you?");
     }
 
     void Start()
@@ -115,7 +115,9 @@ public class UIManager : Singleton<UIManager>
         {
             deathMessage = ((FatalObject)cause).GetDeathMessage();
         }
-        Debug.Log(deathMessage);
+        //Debug.Log(deathMessage);
+        UIPopup ui = new newDeathPopup(deathMessage);
+        ui.Show();
         //LoadPopup((GameObject)deathMenu, deathMessage /*, ACTION CALLBACK HERE*/);
     }
 
@@ -150,15 +152,21 @@ public class UIManager : Singleton<UIManager>
 
     public void DestroyPopup(GameObject popup)
     {
-        Debug.Log("BUTTON PRESSED");
-        Debug.Log(OnDialogDismiss);
+        //Debug.Log("BUTTON PRESSED");
+        //Debug.Log(OnDialogDismiss);
         if (OnDialogDismiss != null)
         {
-            Debug.Log("INVOKING FROM UI MANAGER");
+           // Debug.Log("INVOKING FROM UI MANAGER");
             OnDialogDismiss.Invoke(popup);
             
         }
         Destroy(popup);
+    }
+
+    public void ShowPauseMenu()
+    {
+        UIPopup uip = new newPausePopup("How did you have time to pause?!");          //amount of deaths, progress to exit
+        uip.Show();
     }
 
     

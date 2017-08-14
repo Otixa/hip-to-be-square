@@ -312,9 +312,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4414508219013154}
-  - component: {fileID: 114713956624156184}
   - component: {fileID: 61491826689449304}
   - component: {fileID: 114237770724351008}
+  - component: {fileID: 114997488362450886}
   m_Layer: 0
   m_Name: joe_section_3
   m_TagString: Untagged
@@ -1246,8 +1246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
+  deathMessages: []
 --- !u!114 &114098921513713788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1261,8 +1260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
+  deathMessages: []
 --- !u!114 &114237770724351008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1293,8 +1291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
+  deathMessages: []
 --- !u!114 &114432571425664958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1308,8 +1305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
+  deathMessages: []
 --- !u!114 &114435527590011428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1323,9 +1319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
---- !u!114 &114713956624156184
+  deathMessages: []
+--- !u!114 &114997488362450886
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1333,7 +1328,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1670594293288284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   keepActive: 0

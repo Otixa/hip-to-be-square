@@ -7,21 +7,30 @@ public class UIPopup  {
 
     protected GameObject Instance;
 
+
     public UIPopup(string prefabName)
     {
         Instance = UIManager.Instance.CreatePopupByResourceName(prefabName);
-        UIManager.Instance.OnDialogDismiss += OnDialogDismiss;
+        UIManager.OnDialogDismiss += OnDialogDismiss;
     }
 
   
     public virtual void Show()
     {
         Instance.SetActive(true);
+        if(UIManager.OnDialogOpen != null)
+        {
+            UIManager.OnDialogOpen.Invoke();
+        }
     }
 
     public virtual void Hide()
     {
         Instance.SetActive(false);
+        if (UIManager.OnDialogClose != null)
+        {
+            UIManager.OnDialogClose.Invoke();
+        }
     }
 
     //THIS IS CALLED WHEN EVENT FROM UI MANAGER IS SENT. 
@@ -34,11 +43,15 @@ public class UIPopup  {
     
     protected void OnDialogDismiss(GameObject dialog)
     {
-        Debug.Log("IAMBEFORETHEIF");
+        //Debug.Log("IAMBEFORETHEIF");
         if (dialog.GetInstanceID() == Instance.GetInstanceID())
         {
-            Debug.Log("IAMINTHEIF");
+           //Debug.Log("IAMINTHEIF");
             OnDismiss();
+            if (UIManager.OnDialogClose != null)
+            {
+                UIManager.OnDialogClose.Invoke();
+            }
         }
     }
 

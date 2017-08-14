@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224241526827619282}
   - component: {fileID: 222609238045273584}
   - component: {fileID: 114314151430191212}
+  - component: {fileID: 114645307252419240}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -168,11 +169,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114587175883648130, guid: 23b763d9cc83e7d4d8e60f3d31e56bfb,
           type: 2}
-        m_MethodName: OnDestroy
-        m_Mode: 1
+        m_MethodName: DestroyPopup
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1638512312164232}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -213,6 +214,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Press <SPACE> to continue
+--- !u!114 &114645307252419240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281821101079672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc6700980c90d24f9def7374ea9d1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submitButton: Submit
 --- !u!114 &114741023198714074
 MonoBehaviour:
   m_ObjectHideFlags: 1

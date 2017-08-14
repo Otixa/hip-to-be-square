@@ -158,9 +158,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4673565390172480}
-  - component: {fileID: 114781924291903712}
   - component: {fileID: 61853915204469532}
   - component: {fileID: 114970854431549224}
+  - component: {fileID: 114645804832935644}
   m_Layer: 0
   m_Name: joe_section_2
   m_TagString: Untagged
@@ -708,8 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
+  deathMessages: []
 --- !u!114 &114494224579963902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,9 +722,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  gameManager: {fileID: 0}
-  spikeHeightOffset: 0
---- !u!114 &114781924291903712
+  deathMessages: []
+--- !u!114 &114645804832935644
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -733,7 +731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1700548630542300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   keepActive: 0

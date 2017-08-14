@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneratedContent : MonoBehaviour {
+/*This component will be attached to things that you want to be destroyed once it's behind the
+ *destruction point (which is off screen to the left of the player). This is to save memory. */
+public class GeneratedContent : MonoBehaviour
+{
+    private Transform destructionPoint;                                         //Reference to the point objects need to pass in order to be deemed safe to destroy
+    public bool keepActive = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        destructionPoint = GameObject.Find("DestructionPoint").transform;               //find the destruction point object that's attached to camera
+    }
+
+    void Update()
+    {
+        if (transform.position.x < destructionPoint.position.x)
+        {       //if whatever has this script attached to it, is behind the destruction point
+            gameObject.SetActive(false);                                        //deactivate so that we can re use them with pooling
+        }
+    }
+
 }

@@ -35,8 +35,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4984597040430348}
   - component: {fileID: 212311566043952172}
-  - component: {fileID: 114204346234706254}
   - component: {fileID: 68764784488150710}
+  - component: {fileID: 114687294559095846}
   m_Layer: 0
   m_Name: Spike (1)
   m_TagString: triggerdeath
@@ -53,8 +53,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4862643416664984}
   - component: {fileID: 212104214994342286}
-  - component: {fileID: 114422992293442570}
   - component: {fileID: 68093907218920914}
+  - component: {fileID: 114880724304179984}
   m_Layer: 0
   m_Name: Spike
   m_TagString: triggerdeath
@@ -147,7 +147,7 @@ EdgeCollider2D:
   - {x: 0.16795301, y: -0.1821213}
   - {x: 0.34734207, y: 0.2152336}
   - {x: 0.44294837, y: -0.2048419}
---- !u!114 &114204346234706254
+--- !u!114 &114687294559095846
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -155,11 +155,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503059831373470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionPoint: {fileID: 0}
---- !u!114 &114422992293442570
+  keepActive: 0
+--- !u!114 &114880724304179984
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -167,10 +167,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1988947299402820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionPoint: {fileID: 0}
+  keepActive: 0
 --- !u!212 &212104214994342286
 SpriteRenderer:
   m_ObjectHideFlags: 1

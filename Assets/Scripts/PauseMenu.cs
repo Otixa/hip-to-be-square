@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour {
 		pauseMenu.SetActive (true);		//this enables the pause menu, which is a canvas based UI
 	}
 
-
 	public void ResumeGame(){			//method linked to the pressing of the Resume Game button
 		Time.timeScale = 1f;			//restore the time to detault speed
 		pauseMenu.SetActive (false);	//disable the canvas based UI for the Pause menu

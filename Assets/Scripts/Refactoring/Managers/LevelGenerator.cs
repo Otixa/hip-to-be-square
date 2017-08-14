@@ -38,8 +38,8 @@ public class LevelGenerator : MonoBehaviour {
 
     private void Awake()
     {
-        GameManager2.Instance.OnLevelFinish += GenerateEndOfLevel;
-        GameManager2.Instance.OnGameReset += ResetLevel;
+        GameManager2.OnLevelFinish += GenerateEndOfLevel;
+        GameManager2.OnGameReset += ResetLevel;
     }
 
     // Update is called once per frame
@@ -160,6 +160,7 @@ public class LevelGenerator : MonoBehaviour {
             transform.position = levelGeneratorStartPos;
             haveSpawnedExit = false;
             endOfLevel = false;
+
             //loop to remove any generated platforms/coins/pickups/spikes, ready for a new game to begin
             GeneratedContent[] activeGeneratedContent = FindObjectsOfType<GeneratedContent>();
             for (int i = 0; i < activeGeneratedContent.Length; i++)

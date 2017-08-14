@@ -12,8 +12,10 @@ public struct PlayerStats
 }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]     //!!is this the correct way to require both?
-public abstract class GenericPlayer : ResettableObject {
-    
+public abstract class GenericPlayer : MonoBehaviour {
+    public Vector3 resetPosition;                   //as will need to access this from object pooler when positions are changing as objects are spawned and destroyed
+    public bool shouldReset = true;                 //for special situation where we want a resettableObject to behave differently 
+
     protected Collider2D _collider;
     protected Rigidbody2D _rigidbody;
     private Animator _animator;		                        //reference to animator so we can set animator parameters
@@ -52,18 +54,32 @@ public abstract class GenericPlayer : ResettableObject {
     }
 
     // Use this for initialization
-    protected override void Awake () {
-        base.Awake();
+    protected void Awake () {
+        resetPosition = transform.position;
         name = this.ToString();
         playerStats.focus = maxFocus;
         _collider = GetComponent<Collider2D>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        GameManager2.Instance.OnGameReset += ResetLevel;
+        GameManager2.OnGameReset += ResetLevel;
+        UIManager.OnDialogClose += DialogClose;
+        UIManager.OnDialogOpen += DialogOpen;
     }
 
-	// Update is called once per frame
-	void Update () {
+    private void DialogOpen()
+    {
+        //Debug.Log("Dialog open: player disabled");
+        enabled = false;
+    } 
+
+    private void DialogClose()
+    {
+        //Debug.Log("Dialog closed: player enabled");
+        enabled = true;
+    }
+
+    // Update is called once per frame
+    void Update () {
         /* The update method here will constantly update the x-axis velocity of the player. It will also need to
 		 * handle the jumping mechanics, allowing the user to jump as desired. This includes not starting a jump
 		 * in midair and ensuring you can only jump when your feet are on the ground (rather than face against a wall)*/

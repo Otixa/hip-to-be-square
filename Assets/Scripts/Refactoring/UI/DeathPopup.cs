@@ -8,9 +8,9 @@ public class DeathPopup : MonoBehaviour {
 
     public void Restart()
     {                                                               //this function will be linked to the click of the restart button
-        if (GameManager2.Instance.OnGameReset != null)
+        if (GameManager2.OnGameReset != null)
         {
-            GameManager2.Instance.OnGameReset.Invoke();             //invoke the event, to be picked up by the Level Generator
+            GameManager2.OnGameReset.Invoke();             //invoke the event, to be picked up by the Level Generator
         }
         Destroy(this.gameObject);                                   //UI Manager will create new instance of the deathPopup prefab when needed again
     }

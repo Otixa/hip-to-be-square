@@ -32,9 +32,9 @@ public class GameManager2 : Singleton<GameManager2>
     public int attemptCounter;                    //does what it says on the tin..!
     public string nextSceneName;                //Scene nextLevel; 
     public string mainMenuScene = "TitleScreen";//a way to speicify the name of the main menu scene
-    public Action OnLevelFinish;
-    public Action<MonoBehaviour> OnPlayerDeath;
-    public Action OnGameReset;
+    public static Action OnLevelFinish;
+    public static Action<MonoBehaviour> OnPlayerDeath;
+    public static Action OnGameReset;
 
     private GameManager2() { }
 
@@ -85,11 +85,22 @@ public class GameManager2 : Singleton<GameManager2>
     public void ResetGame()
     {
         scoreCounter = 0;
-        BuffPickup.GetActive().Cancel();
+        if (BuffPickup.GetActive() != null)
+        {
+            BuffPickup.GetActive().Cancel();
+        }
         scoreCounter = 0;                              //set score back to 0 ready for a new game,             
         scoringEnabled = true;                         //re-enable scoring once the new game begin             !!if distance travelled, then won't need this
         spawnedEnd = false;                            //reset this, allowing us to meet the winning criteria again
         Time.timeScale = 1f;                           //reset the time to regular speed, incase player died during slow down      !!this should happen upon buff resetting? 
+    }
+
+    public void TriggerReset()
+    {
+        if(OnGameReset != null)
+        {
+            OnGameReset.Invoke();
+        }
     }
 
 }

@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class FatalObject : EnvironmentObject {
     public List <String> deathMessages;
+   // public string chosenMessage;
    
     protected override void OnPlayerCollision(PlayerCollisionEvent other)
     {
-        if (GameManager2.Instance.OnPlayerDeath != null)
+       // chosenMessage = GetDeathMessage();
+        if (GameManager2.OnPlayerDeath != null)
         {
-            GameManager2.Instance.OnPlayerDeath.Invoke(this);             //invoke the event, to be picked up by the Level Generator
+            GameManager2.OnPlayerDeath.Invoke(this);             //invoke the event, to be picked up by the Level Generator
         }
     }
 
@@ -18,7 +20,7 @@ public class FatalObject : EnvironmentObject {
     {
         if(deathMessages.Count > 0)
         {
-            return deathMessages[UnityEngine.Random.Range(0, deathMessages.Count + 1)];
+            return deathMessages[UnityEngine.Random.Range(0, deathMessages.Count)];
         }
         return "You died. And so did our death message generator.";
     }

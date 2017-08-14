@@ -55,10 +55,10 @@ MonoBehaviour:
   coinPool: {fileID: 0}
   spikePool: {fileID: 0}
   minGapBetweenPlatform: 1
-  maxGapBetweenPlatform: 3
+  maxGapBetweenPlatform: 2
   maxPlatformYChange: 2.5
-  spikeSpawnChance: 50
-  powerupSpawnChance: 50
+  spikeSpawnChance: 100
+  powerupSpawnChance: 100
   powerupHeight: 3
   exitSpawnHeight: 3
   randomLevelGenerationEnabled: 1

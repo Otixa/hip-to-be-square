@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212219299749963784}
   - component: {fileID: 58710547019743058}
   - component: {fileID: 114660387007159168}
-  - component: {fileID: 114942309090163254}
+  - component: {fileID: 114605247658089500}
   m_Layer: 0
   m_Name: FocusBuff
   m_TagString: Untagged
@@ -58,6 +58,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &114605247658089500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229879747743834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepActive: 0
 --- !u!114 &114660387007159168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,18 +84,6 @@ MonoBehaviour:
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
   buffDuration: 5
---- !u!114 &114942309090163254
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229879747743834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keepActive: 0
 --- !u!212 &212219299749963784
 SpriteRenderer:
   m_ObjectHideFlags: 1

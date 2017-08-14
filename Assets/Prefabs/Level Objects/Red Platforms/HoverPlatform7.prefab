@@ -84,8 +84,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4207109898219688}
   - component: {fileID: 61556057280961988}
-  - component: {fileID: 114894946492350680}
   - component: {fileID: 114911619434931204}
+  - component: {fileID: 114027188421291334}
   m_Layer: 8
   m_Name: HoverPlatform7
   m_TagString: Untagged
@@ -277,7 +277,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114894946492350680
+--- !u!114 &114027188421291334
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1539666859850798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4809fcf536c14f4d8b34fa24435f997, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0d2a32cd016e74fa72751aa5b73f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   keepActive: 0
@@ -306,7 +306,6 @@ MonoBehaviour:
   canSpawnCoins: 1
   canSpawnSpikes: 1
   width: 7
-  isDestroyable: 1
 --- !u!212 &212059808843169020
 SpriteRenderer:
   m_ObjectHideFlags: 1
