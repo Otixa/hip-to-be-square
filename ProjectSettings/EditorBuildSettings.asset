@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/JoeIntro.unity
     guid: 540dc54fd4ff6034db91603ef0499285
   - enabled: 1
+    path: Assets/Scenes/JoeLevel.unity
+    guid: 4432e5fd599eb0e44a73315383755f46
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 5a6890386b943c54bbc9e491eb3c0bc2
   - enabled: 1

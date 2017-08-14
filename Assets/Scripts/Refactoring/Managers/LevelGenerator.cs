@@ -27,7 +27,7 @@ public class LevelGenerator : MonoBehaviour {
 
     private Vector3 levelGeneratorStartPos;                     //store starting co-ords in order to restart game
     private bool endOfLevel;                                    //boolean to state whether the game has reached the end of level phase, and to stop randomly generating the level
-    private bool haveSpawnedExit;                               //boolean to stop any further generation of level once exit has been activated
+    //private bool haveSpawnedExit;                               //boolean to stop any further generation of level once exit has been activated (DONT NEED CAUSE HANDLED WITH EVENT NOW)
     public float exitSpawnHeight = 3.5f;                        //user passes in this value to specify how high the exit should be spawned
     public bool randomLevelGenerationEnabled = true;            //flag to turn off when you don't want this map generator to create generated content
     
@@ -150,7 +150,7 @@ public class LevelGenerator : MonoBehaviour {
             theExit.transform.position = new Vector3(transform.position.x, transform.position.y + exitSpawnHeight, transform.position.z);
             theExit.transform.rotation = transform.rotation;
             theExit.SetActive(true);
-            haveSpawnedExit = true;                                                                  //ensures we only generate the home straight once
+            //haveSpawnedExit = true;                                                                  //ensures we only generate the home straight once
     }
 
     public void ResetLevel()
@@ -158,7 +158,7 @@ public class LevelGenerator : MonoBehaviour {
         if (randomLevelGenerationEnabled)                   //in order to avoid unnecessary computation on tutorial levels
         {
             transform.position = levelGeneratorStartPos;
-            haveSpawnedExit = false;
+            //haveSpawnedExit = false;
             endOfLevel = false;
 
             //loop to remove any generated platforms/coins/pickups/spikes, ready for a new game to begin

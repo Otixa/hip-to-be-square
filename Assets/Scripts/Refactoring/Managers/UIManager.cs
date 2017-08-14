@@ -24,7 +24,7 @@ public class UIManager : Singleton<UIManager>
     //public TextAndImagePopup textPopup;               //used to display an image background, an image and some text (template includes instruction on how to dismiss the message).
     //public TextAndContinuePopup continuePopup;        //used to dislpay text, and a button that when clicked will load a new scene
     private GenericPlayer player;                       //reference needed so we can access character name and speed bar value
-    private LevelGenerator levelGenerator;              //reference needed so we can stop generating map when we accumulate enough points
+    //private LevelGenerator levelGenerator;              //reference needed so we can stop generating map when we accumulate enough points
     private float buffDurationCounter;                  //this used to keep track of remaining time and then display in the GUI
 
     public Canvas UICanvas;
@@ -57,7 +57,7 @@ public class UIManager : Singleton<UIManager>
     {
         UICanvas = GetComponent<Canvas>();
         player = FindObjectOfType<GenericPlayer>();                         //get hold of the player                !!is there another way around having to find the player, probably not
-        levelGenerator = FindObjectOfType<LevelGenerator>();                //get hold of the MapGenerator
+        //levelGenerator = FindObjectOfType<LevelGenerator>();                //get hold of the MapGenerator
         playerName.text = player.playerStats.name;                          //grab the name field from the player                                           
         focusAmount.text = "Focus: " + player.playerStats.focus.ToString("F2") + " / " + player.playerStats.focus;  //display our speed points text (under the blue bar)
         buffImage.color = new Color(0.5f, 0.5f, 0.5f, 0.2f);                //sets the buff image to be greyed out when inactive
