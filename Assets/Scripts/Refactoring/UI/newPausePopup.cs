@@ -18,6 +18,7 @@ public class newPausePopup : UIPopup {
     }
     protected override void OnDismiss()
     {
+        Time.timeScale = 1f;
         //may need to reenable time here
         //things to do when you want to destroy - extended in child classes
     }
