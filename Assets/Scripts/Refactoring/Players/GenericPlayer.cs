@@ -145,8 +145,8 @@ public abstract class GenericPlayer : MonoBehaviour {
                 {
                     //Debug.Log("FREE FOCUS ON: Slowdown modifier is: "+slowDownModifier);
                 }
-
                 Time.timeScale = slowDownModifier;                      //set the game speed based on the slow down modifier (example: 2 would mean speed is halved)
+                Time.fixedDeltaTime = Time.timeScale * .02f;
                 _animator.SetBool("isFocusing", true);                  //boolean that trigger the animation to start                                                                                                   //myAnimator.SetBool("isMoving", false);
             }
         }
@@ -154,6 +154,7 @@ public abstract class GenericPlayer : MonoBehaviour {
         if (Input.GetButtonUp("Focus") || (playerStats.focus <= 0 && !freeFocus))
         {                                                               //to track when player stops expending slow down speed points
             Time.timeScale = 1f;                                        //reset the speed to the original speed
+            Time.fixedDeltaTime = .02f;
             if (playerStats.focus < 0)
             {                                                           //to ensure that the lowest playerStats.focus possible is 0.00. 
                 playerStats.focus = 0;
