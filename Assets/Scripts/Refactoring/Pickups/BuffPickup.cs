@@ -23,6 +23,7 @@ public abstract class BuffPickup : Pickup {
     /// </summary>
     internal void _disableBuffInternal()                    //THIS ONLY GETS CALLED WHEN A BUFF COMES TO ITS NATURAL END (NOT PREMATURELY CANCELLED)
     {
+        GameManager2.OnBuffExpire.Invoke(_activeBuff);
         _activeBuff = null;
         OnExpire();
     }
@@ -31,8 +32,8 @@ public abstract class BuffPickup : Pickup {
     /// Disables and cancels the timer for the currently active BuffPickup.
     /// Also calls CancelBuff.
     /// </summary>
-    internal void _cancelBuffInternal() {                     //THIS WILL GET CALLED WHEN A NEW PICKUP IS COLLECTED, AND AN OLD PICKUP IS ACTIVE. GETS CALLED ON THE OLD ONE. 
-		CancelInvoke ("_disableBuffInternal");  //(WONT HAVE AN INVOKATION OF THIS))      //stop this scheduled one, because we're gonna do it right now instead.
+    internal void _cancelBuffInternal() {                       //THIS WILL GET CALLED WHEN A NEW PICKUP IS COLLECTED, AND AN OLD PICKUP IS ACTIVE. GETS CALLED ON THE OLD ONE. 
+		CancelInvoke ("_disableBuffInternal");                  //(WONT HAVE AN INVOKATION OF THIS))                    //stop this scheduled one, because we're gonna do it right now instead.
         OnCancel();           //if you wanna do something different if it is cancelled early,
                                 //rather than it coming to it's naturally end.
         //DisableBuff ();        //(THIS WOULD GET CALLED A SECOND TIME ON THE SAME OBJECT) //invert all the things the buff changed
@@ -51,15 +52,20 @@ public abstract class BuffPickup : Pickup {
             //Debug.Log("On pickup, buff was already active");
             _activeBuff._cancelBuffInternal ();      //get that buff object, and cancel any invokation it's scheduled
 		}
-		_activeBuff = this;              //assign active buff to be the current buffPickup that's just been collected
-		OnApply ();                    //do whatever actions that specific buff needs you to do, defined by the specific buffs
-        if(_activeBuff is FocusBuff){ 
-		    Invoke ("_disableBuffInternal", (buffDuration*other.player.GetComponent<GenericPlayer>().slowDownModifier));        //set the disableBuffInternal function to be called in Buff Duration seconds
-        }
-        else
-        {
-            Invoke("_disableBuffInternal", buffDuration);        //set the disableBuffInternal function to be called in Buff Duration seconds
-        }
+		_activeBuff = this;                         //assign active buff to be the current buffPickup that's just been collected
+        GameManager2.OnBuffPickup.Invoke(_activeBuff);
+        OnApply ();                                 //do whatever actions that specific buff needs you to do, defined by the specific buffs
+
+        Invoke("_disableBuffInternal", buffDuration);        //set the disableBuffInternal function to be called in Buff Duration seconds
+
+        //  if (_activeBuff is FocusBuff){
+        //      Invoker.InvokeDelayed(_disableBuffInternal, buffDuration);
+        ////Invoke ("_disableBuffInternal", (buffDuration*other.player.GetComponent<GenericPlayer>().slowDownModifier));        //set the disableBuffInternal function to be called in Buff Duration seconds
+        //  }
+        //  else
+        //  {
+        //      Invoke("_disableBuffInternal", buffDuration);        //set the disableBuffInternal function to be called in Buff Duration seconds
+        //  }
     }
     #endregion
 
@@ -67,6 +73,11 @@ public abstract class BuffPickup : Pickup {
     {
         return _activeBuff;
     }
+    public float GetDuration()
+    {
+        return buffDuration;
+    }
+
 
     //public static float GetDuration()
     //{

@@ -39,6 +39,8 @@ public abstract class GenericPlayer : MonoBehaviour {
 
     [Header("Additional Settings")]
     public float lastFrameVelocity;			    //this players velocity, BUT LAST FRAME - used for some player collisions to detect the downwards velocity upon impact
+    private Vector3 lastFramePos;
+    public float distanceSinceLastFrame;        
 
 
     private void OnDrawGizmos()
@@ -55,6 +57,7 @@ public abstract class GenericPlayer : MonoBehaviour {
 
     // Use this for initialization
     protected void Awake () {
+        lastFramePos = resetPosition;
         resetPosition = transform.position;
         name = this.ToString();
         playerStats.focus = maxFocus;
@@ -170,11 +173,17 @@ public abstract class GenericPlayer : MonoBehaviour {
         {
             _animator.SetBool("isJumping", true);
         }
+
+        distanceSinceLastFrame = transform.position.x - lastFramePos.x;
+        lastFramePos = transform.position;
+        GameManager2.Instance.distanceMoved = distanceSinceLastFrame;
+        //Debug.Log(distanceSinceLastFrame);
     }
 
     void FixedUpdate()                                                  //this update will execute prior to collision code calculations
     {               
         lastFrameVelocity = _rigidbody.velocity.y;
+        
     }
 
     private void UpdatePlayerStats()
@@ -187,6 +196,7 @@ public abstract class GenericPlayer : MonoBehaviour {
     {
         transform.position = resetPosition;
         playerStats.focus = maxFocus;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     private Vector3 GetFeetPosition()

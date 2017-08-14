@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetPosition: {x: 0, y: 0, z: 0}
   shouldReset: 0
-  buffDuration: 5
+  buffDuration: 2
 --- !u!212 &212219299749963784
 SpriteRenderer:
   m_ObjectHideFlags: 1

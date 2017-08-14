@@ -123,7 +123,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224389334437813940}
-  - component: {fileID: 114879170797599332}
   m_Layer: 5
   m_Name: newPausePopup
   m_TagString: Untagged
@@ -606,18 +605,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114879170797599332
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1661994292705422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10524741e43ce264fa9fb9925f67af78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuScene: TitleScreen
 --- !u!114 &114961387036107734
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -49,7 +49,7 @@ public class LevelGenerator : MonoBehaviour {
 		 * the level genrator (meaning the point ahead of camera passes the last platform created), we shift the platform generator ahead and place a 
 		 * platform. This way, the platforms generate a few steps ahead of the player, so you never see them built but also we don't have to
 		 * build the entire map before the player can start. */
-        if (sectionPools != null || !randomLevelGenerationEnabled)                                               //incase we don't need map generation, sectionPool would be empty...!
+        if (sectionPools != null && randomLevelGenerationEnabled)                                               //incase we don't need map generation, sectionPool would be empty...!
         {           
             if (!endOfLevel)
             {                                                                   //if we haven't reached the amount of points to trigger the end of level section to spawn

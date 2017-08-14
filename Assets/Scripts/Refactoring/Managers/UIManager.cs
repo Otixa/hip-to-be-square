@@ -42,6 +42,9 @@ public class UIManager : Singleton<UIManager>
     {
        
         GameManager2.OnPlayerDeath += OnDeath;     //subscribe to the event OnPlayerDeath, and run the OnDeath() function when invoked
+        GameManager2.OnBuffExpire += HideBuff;     //subscribe to the event OnPlayerDeath, and run the OnDeath() function when invoked
+        GameManager2.OnBuffPickup += SetBuff;     //subscribe to the event OnPlayerDeath, and run the OnDeath() function when invoked
+
         OnDialogDismiss += TestingEvent;
     }
 
@@ -79,8 +82,8 @@ public class UIManager : Singleton<UIManager>
         buffDurationText.text = "" + Mathf.Round(buffDurationCounter);
     }
 
-    public void SetBuff(float duration)
-    {
+    public void SetBuff(BuffPickup buff)
+    {       
         if (BuffPickup.GetActive() is FocusBuff)             //BLUE BUFF
         {
             buffImage.GetComponent<Image>().overrideSprite = buffImages[0];
@@ -97,13 +100,17 @@ public class UIManager : Singleton<UIManager>
             Debug.Log("Unrecognised Buff Type, unable to set correct image");
         }
         buffDurationText.color = new Color(1f, 1f, 1f, 1f);
-        buffDurationCounter = duration;
+        buffDurationCounter = buff.GetDuration();
     }
 
-    public void HideBuff()
+    public void HideBuff(BuffPickup buff)
     {
-        buffImage.color = new Color(0.2f, 0.2f, 0.2f, 0.5f);
-        buffDurationText.color = new Color(1f, 1f, 1f, 0f);
+        if(buff == BuffPickup.GetActive() || BuffPickup.GetActive() == null)
+        {
+            buffImage.color = new Color(0.2f, 0.2f, 0.2f, 0.5f);
+            buffDurationText.color = new Color(1f, 1f, 1f, 0.1f);
+        }
+
     }
 
     //This function is called on the event of OnPlayerDeath
@@ -121,26 +128,26 @@ public class UIManager : Singleton<UIManager>
         //LoadPopup((GameObject)deathMenu, deathMessage /*, ACTION CALLBACK HERE*/);
     }
 
-    public void LoadPopup(GameObject popupType, string message/*, Action Callback*/)
-    {
-        //var popup = Instantiate(popupType, Vector3.zero, Quaternion.identity, transform.parent) as GameObject;
-        var popup = Instantiate(popupType, this.transform.position, Quaternion.identity, this.transform) as GameObject;
-        popup.GetComponentInChildren<Text>().text = message;                //there are more than one text component, we need a way of being more specific
+    //public void LoadPopup(GameObject popupType, string message/*, Action Callback*/)
+    //{
+    //    //var popup = Instantiate(popupType, Vector3.zero, Quaternion.identity, transform.parent) as GameObject;
+    //    var popup = Instantiate(popupType, this.transform.position, Quaternion.identity, this.transform) as GameObject;
+    //    popup.GetComponentInChildren<Text>().text = message;                //there are more than one text component, we need a way of being more specific
 
-        //float timeoutTimer = 10f;
-        //Time.timeScale = 0f;
+    //    //float timeoutTimer = 10f;
+    //    //Time.timeScale = 0f;
         
-        //while (!Input.GetButtonDown("Jump") || timeoutTimer > 0)
-        //{
-        //    Debug.Log("I'm in the message popup timer loop");
-        //    timeoutTimer -= Time.unscaledDeltaTime;
-        //}
-        //Time.timeScale = 1f;
-        //Debug.Log("I'm out of it!");
-        //Destroy(popup);
-        //Callback.Invoke();                                   //Invoke the code we want to run once the popup has been loaded
-        // we need a way to stop time, and to reenable time and player script upon input / button click. disable the popup,
-    }
+    //    //while (!Input.GetButtonDown("Jump") || timeoutTimer > 0)
+    //    //{
+    //    //    Debug.Log("I'm in the message popup timer loop");
+    //    //    timeoutTimer -= Time.unscaledDeltaTime;
+    //    //}
+    //    //Time.timeScale = 1f;
+    //    //Debug.Log("I'm out of it!");
+    //    //Destroy(popup);
+    //    //Callback.Invoke();                                   //Invoke the code we want to run once the popup has been loaded
+    //    // we need a way to stop time, and to reenable time and player script upon input / button click. disable the popup,
+    //}
 
     public GameObject CreatePopupByResourceName(string resourceName)
     {
@@ -167,6 +174,7 @@ public class UIManager : Singleton<UIManager>
     {
         UIPopup uip = new newPausePopup("How did you have time to pause?!");          //amount of deaths, progress to exit
         uip.Show();
+        //UIManager.Instance.GetComponent<>
     }
 
     

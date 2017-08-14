@@ -7,7 +7,6 @@ public class UIPopup  {
 
     protected GameObject Instance;
 
-
     public UIPopup(string prefabName)
     {
         Instance = UIManager.Instance.CreatePopupByResourceName(prefabName);
@@ -18,6 +17,7 @@ public class UIPopup  {
     public virtual void Show()
     {
         Instance.SetActive(true);
+        GameManager2.Instance.scoringEnabled = false;
         if(UIManager.OnDialogOpen != null)
         {
             UIManager.OnDialogOpen.Invoke();
@@ -44,6 +44,7 @@ public class UIPopup  {
     protected void OnDialogDismiss(GameObject dialog)
     {
         //Debug.Log("IAMBEFORETHEIF");
+        GameManager2.Instance.scoringEnabled = true;
         if (dialog.GetInstanceID() == Instance.GetInstanceID())
         {
            //Debug.Log("IAMINTHEIF");

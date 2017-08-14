@@ -11,7 +11,7 @@ public class FocusBuff : BuffPickup {
 
 	protected override void Awake(){
         base.Awake();
-        buffDuration = 3f;                                              //Focus Buff Specific Time
+        //buffDuration = 2f;                                              //Focus Buff Specific Time
         player = FindObjectOfType<GenericPlayer>();		                //we need this so we can call the add points function within it
 		//theScoreManager = FindObjectOfType<ScoreManager>();	        //old way of doing
 	}
@@ -19,7 +19,7 @@ public class FocusBuff : BuffPickup {
 	protected override void OnApply ()
 	{
 		player.freeFocus = true;			                    //tell the player controller it no longer needs to expend focus points
-        UIManager.Instance.SetBuff (buffDuration);	            //sorting the UI to display the buff
+        //UIManager.Instance.SetBuff (buffDuration);	            //sorting the UI to display the buff
 		//theScoreManager.setBuff (this, buffDuration);	        //old way of doing
 	}
 
@@ -28,7 +28,7 @@ public class FocusBuff : BuffPickup {
 		//Debug.Log ("I've hit disableBuff FOCUS");
 		//base.DisableBuff ();							//ensures code from the base class in this method is executed
 		player.freeFocus = false;                       //enable the expendeture of focus points in the player controller
-        UIManager.Instance.HideBuff();                  //test	
+        //UIManager.Instance.HideBuff();                  //test	
 	}
 
 }

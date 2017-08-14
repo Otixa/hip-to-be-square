@@ -9,7 +9,8 @@ public class UITrigger : PersistentPlayerTrigger {
 
     public override void WhenTriggered(PlayerCollisionEvent other)
     {
-        UIManager.Instance.LoadPopup(popupType, theMessage/*, CALLBACK HERER*/);
+        //UIManager.Instance.LoadPopup(popupType, theMessage/*, CALLBACK HERER*/);
+        Debug.Log("i am an obsolete triggerrrrrrr");
     }
 
 }

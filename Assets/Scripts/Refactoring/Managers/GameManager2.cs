@@ -26,6 +26,7 @@ public class GameManager2 : Singleton<GameManager2>
     
     public float scoreCounter = 0;                  //this is used to keep track of the current score of this game (from start until death)
     public float pointsPerSecond = 10;              //this specifies how many points we should add to the score every second that passes
+    public float pointsPerUnitTravelled = 10;
     [Range(100, 1000)] public float scoreCap = 1000;                      //the limit of points needed to be earned to unlock the level exit
     public bool scoringEnabled = true;          //this boolean controls whether or not points should be added to the score counter or not (when you die, points should stop increasing)
     public bool spawnedEnd;                     //boolean that ensures the endoflevel code (EVENT) is only executed (BROADCASTED) once
@@ -35,6 +36,9 @@ public class GameManager2 : Singleton<GameManager2>
     public static Action OnLevelFinish;
     public static Action<MonoBehaviour> OnPlayerDeath;
     public static Action OnGameReset;
+    public static Action<BuffPickup> OnBuffPickup;
+    public static Action<BuffPickup> OnBuffExpire;
+    public float distanceMoved;
 
     private GameManager2() { }
 
@@ -48,10 +52,16 @@ public class GameManager2 : Singleton<GameManager2>
     //handle the scoring in here
     void Update() {
         //INCREASE SCORE
+        //if (scoringEnabled)
+        //{                                                                                                           //if we are alive and not finished the level !!Maybe don't need this if we just clamp / cap the score
+        //    scoreCounter = Mathf.Clamp(scoreCounter + (pointsPerSecond * Time.deltaTime), 0, scoreCap);             //calculate score per frame and add it to our counter
+        //}
+
         if (scoringEnabled)
-        {                                                                   //if we are alive and not finished the level !!Maybe don't need this if we just clamp / cap the score
-            scoreCounter = Mathf.Clamp(scoreCounter + (pointsPerSecond * Time.deltaTime), 0, scoreCap);             //calculate score per frame and add it to our counter
+        {                               //old score + distance travelled                                                                                                    //if we are alive and not finished the level !!Maybe don't need this if we just clamp / cap the score
+            scoreCounter = Mathf.Clamp(scoreCounter + (pointsPerUnitTravelled * distanceMoved), 0, scoreCap);             //calculate score per frame and add it to our counter
         }
+
         //CHECK IF WE HAVE MET WIN CONDITION
         if (scoreCounter >= scoreCap && spawnedEnd == false)
         {               //check the score to see if it is ready to end the level  
@@ -66,6 +76,11 @@ public class GameManager2 : Singleton<GameManager2>
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(mainMenuScene);
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(nextSceneName);
     }
 
     public void AddPoints(int amount)

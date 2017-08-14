@@ -15,14 +15,14 @@ public class PointBuff : BuffPickup {
 
 	protected override void OnApply ()
 	{
-		GameManager2.Instance.pointsPerSecond *= pointsModifier;        //tell score manager to multiply the points per second by buffAmount
-        UIManager.Instance.SetBuff(buffDuration);                       //sorting the UI to display the buff
+		GameManager2.Instance.pointsPerUnitTravelled *= pointsModifier;        //tell score manager to multiply the points per second by buffAmount
+        //UIManager.Instance.SetBuff(buffDuration);                               //sorting the UI to display the buff
     }
 
 	protected override void OnExpire ()
 	{
-        GameManager2.Instance.pointsPerSecond /= pointsModifier;            //tell score manager to divide the points per second by theBuffAmount
-        UIManager.Instance.HideBuff();
+        GameManager2.Instance.pointsPerUnitTravelled /= pointsModifier;            //tell score manager to divide the points per second by theBuffAmount
+        //UIManager.Instance.HideBuff();
 	}
 
 }

@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
 	
 	private GenericPlayer player;	//so we can get hold of our player in order to follow his X co-ordinate through the game
 	private Vector3 previousPlayerPosition;			//variable to store the players position, we will use this to update the cameras position relative to the player
-	private float distanceMoved;					//to store gap between camera and player
+	public float distanceMoved;					    //to store gap between camera and player //!!shit implementation
 	private float originalCameraHeight;				//store the starting height of camera, to return to when camera pans up at top of map.
 	private float maxCameraHeight;					//store the maximum y coordinate the camera is allowed to pan to when above the heightToStartPan
 	public float heightToStartPan;					//we set this value which says at which y co-ordinate should the camera start following the y movement
