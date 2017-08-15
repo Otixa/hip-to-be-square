@@ -100,7 +100,7 @@ public class UIManager : Singleton<UIManager>
             Debug.Log("Unrecognised Buff Type, unable to set correct image");
         }
         buffDurationText.color = new Color(1f, 1f, 1f, 1f);
-        buffDurationCounter = buff.GetDuration();
+        buffDurationCounter = buff.Duration;
     }
 
     public void HideBuff(BuffPickup buff)
