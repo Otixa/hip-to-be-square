@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756cf662185778f42ae4ee9ff7b6f3b7, type: 3}
+  m_Name: RedPlanet
+  m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 1376793057781194, guid: 04333fd2accac57499bbd5c46a916985, type: 2}
+  - {fileID: 1366161445123300, guid: 7f544cb9f938ecf49a888dc0bc134e60, type: 2}
+  - {fileID: 1066709961935788, guid: db03fc57c571d554ea4017f955213bab, type: 2}
+  - {fileID: 1684255854723822, guid: 515149fa74504a147919dedca5c74dec, type: 2}
+  - {fileID: 1263726510344232, guid: 0d730d5655d70794d856f01817d9b375, type: 2}
+  - {fileID: 1280331537385394, guid: 41865df627f187f47ad985dd5ce4a925, type: 2}
+  - {fileID: 1229879747743834, guid: d26c77513efa6474397edb643598a4f3, type: 2}
+  - {fileID: 1008622348883506, guid: 88b18a9a4d665734593e8734b15d8edc, type: 2}
+  - {fileID: 1276254524784128, guid: a7d33c28c7c94a748bbc708d691e42dc, type: 2}
+  - {fileID: 1018112262336388, guid: b451e802405ef394fbc62ae0b4bea04d, type: 2}
